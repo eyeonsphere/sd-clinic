@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight Loss — Revel Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark-900:#0E1B2E;
+    --dark-700:#163454;
+    --dark-500:#2C567E;
+    --coral-500:#4FB3E8;
+    --coral-600:#2E93C9;
+    --coral-100:#DFF1FB;
+    --bg-fade:#FBF6F1;
+    --sand-200:#EEE2D6;
+    --ink-900:#1D2530;
+    --ink-600:#57626D;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope', sans-serif;
+    color:var(--ink-900);
+    background:var(--bg-fade);
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.1;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--coral-600);
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px;
+    border-radius:100px;
+    font-weight:700;
+    font-size:.92rem;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-coral{background:var(--coral-500); color:#fff; box-shadow:0 8px 20px -8px rgba(46,147,201,.5);}
+  .btn-coral:hover{background:var(--coral-600);}
+  .btn-outline{border-color:rgba(255,255,255,.4); color:#fff;}
+  .btn-outline:hover{border-color:#fff;}
+  .btn-plum{background:var(--dark-700); color:#fff;}
+
+  /* ---------- Trust bar ---------- */
+  .trustbar{
+    background:var(--dark-900);
+    color:#E5EEF6;
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  .trustbar .wrap{
+    display:flex; justify-content:center; gap:40px;
+    padding:9px 28px; flex-wrap:wrap;
+  }
+  .trustbar span{display:flex; align-items:center; gap:7px; white-space:nowrap;}
+  .trustbar span::before{content:"✓"; color:var(--coral-500); font-weight:800;}
+
+  /* ---------- Header ---------- */
+  header{
+    background:var(--dark-700);
+    position:sticky; top:0; z-index:50;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .navrow{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.5rem;
+    color:#fff;
+    font-weight:600;
+    display:flex; align-items:center; gap:10px;
+  }
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--coral-500);display:inline-block;}
+  nav.mainnav{display:flex; gap:34px;}
+  nav.mainnav a{
+    color:#CFE0EE; font-weight:600; font-size:.92rem;
+    padding:6px 2px; border-bottom:2px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  nav.mainnav a:hover, nav.mainnav a.active{color:#fff; border-color:var(--coral-500);}
+  .navactions{display:flex; align-items:center; gap:14px;}
+  .navactions a.icon-link{color:#CFE0EE; font-weight:600; font-size:.9rem;}
+  .navactions a.icon-link:hover{color:#fff;}
+  .navtoggle{display:none; background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer; line-height:1;}
+  .mobilenav{
+    display:none; flex-direction:column; gap:2px;
+    max-height:0; overflow:hidden;
+    background:var(--dark-900);
+    transition:max-height .25s ease;
+  }
+  .mobilenav.open{max-height:420px;}
+  .mobilenav a{
+    color:#CFE0EE; font-weight:600; font-size:.95rem;
+    padding:14px 28px; border-top:1px solid rgba(255,255,255,.08);
+  }
+  .mobilenav a.btn{margin:14px 28px 20px; text-align:center; justify-content:center;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(circle at 18% 20%, rgba(79,179,232,.30), transparent 45%),
+      linear-gradient(160deg, var(--dark-900) 0%, var(--dark-700) 55%, var(--dark-500) 100%);
+    color:#fff;
+    overflow:hidden;
+    padding:88px 0 0;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;
+  }
+  .hero .eyebrow{color:var(--coral-500);}
+  .hero h1{
+    font-size:clamp(2.4rem, 4.4vw, 3.7rem);
+    margin:16px 0 20px;
+  }
+  .hero h1 em{font-style:italic; color:var(--coral-500);}
+  .hero p.lede{font-size:1.08rem; color:#CFE0EE; max-width:46ch; margin-bottom:32px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-art{
+    position:relative; aspect-ratio:4/5; border-radius:22px;
+    background:linear-gradient(200deg, rgba(255,255,255,.14), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.16);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-art svg{width:72%; height:72%;}
+
+  /* ---------- Category hero (product pages) ---------- */
+  .cat-hero{
+    position:relative;
+    background:
+      radial-gradient(circle at 82% 20%, rgba(79,179,232,.28), transparent 45%),
+      linear-gradient(160deg, var(--dark-900) 0%, var(--dark-700) 60%, var(--dark-500) 100%);
+    color:#fff;
+    padding:64px 0;
+  }
+  .cat-hero .eyebrow{color:var(--coral-500);}
+  .cat-hero h1{font-size:clamp(2.1rem,4vw,3rem); margin:14px 0 16px;}
+  .cat-hero p{color:#CFE0EE; max-width:56ch; font-size:1.04rem; margin-bottom:28px;}
+  .breadcrumb{font-size:.82rem; color:#9FB8CC; margin-bottom:18px;}
+  .breadcrumb a:hover{color:#fff;}
+
+  /* ---------- Timeline signature strip ---------- */
+  .timeline{
+    background:var(--ink-900);
+    color:#E5EEF6;
+    padding:26px 0;
+    margin-top:70px;
+  }
+  .timeline .wrap{display:flex; align-items:center; gap:22px;}
+  .timeline .tl-label{font-family:'IBM Plex Mono',monospace; font-size:.75rem; letter-spacing:.08em; color:#9FB8CC; white-space:nowrap;}
+  .tl-track{flex:1; position:relative; height:4px; background:rgba(255,255,255,.14); border-radius:4px;}
+  .tl-fill{position:absolute; left:0; top:0; height:100%; width:14%; background:var(--coral-500); border-radius:4px;}
+  .tl-dot{position:absolute; top:50%; width:14px; height:14px; border-radius:50%; background:var(--coral-500); transform:translate(-50%,-50%); box-shadow:0 0 0 5px rgba(79,179,232,.25);}
+
+  /* ---------- Section shells ---------- */
+  section{padding:86px 0;}
+  .section-head{max-width:640px; margin:0 auto 48px; text-align:center;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem); margin-top:10px;}
+  .section-head p{color:var(--ink-600); margin-top:12px; font-size:1.02rem;}
+
+  /* ---------- Program / teaser cards ---------- */
+  .card-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px;
+  }
+  .category-block{padding:56px 0;}
+  .category-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom:28px; flex-wrap:wrap; gap:8px;
+  }
+  .category-head h2{font-size:clamp(1.4rem,2.4vw,1.9rem);}
+  .category-head p{color:var(--ink-600); font-size:.95rem; max-width:46ch;}
+  .card{
+    background:#fff; border:1px solid var(--sand-200); border-radius:18px;
+    padding:26px 22px; display:flex; flex-direction:column; gap:14px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{transform:translateY(-6px); box-shadow:0 20px 34px -20px rgba(14,27,46,.28);}
+  .card-icon{
+    width:52px; height:52px; border-radius:14px;
+    background:var(--coral-100); display:flex; align-items:center; justify-content:center;
+  }
+  .card-icon svg{width:26px; height:26px; stroke:var(--coral-600);}
+  .card h3{font-size:1.18rem;}
+  .card p.blurb{color:var(--ink-600); font-size:.9rem;}
+  .card .price{font-family:'IBM Plex Mono', monospace; font-size:1.3rem; color:var(--dark-700); font-weight:500;}
+  .card .price span{font-size:.75rem; color:var(--ink-600); font-family:'Manrope',sans-serif;}
+  .card .first-month{font-size:.82rem; color:var(--ink-600);}
+  .card a.card-cta{
+    margin-top:auto; font-weight:700; font-size:.88rem; color:var(--coral-600);
+    display:flex; align-items:center; gap:6px;
+  }
+  .card a.card-cta:hover{color:var(--coral-500);}
+
+  /* ---------- How it works (numbered) ---------- */
+  .steps{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:26px;
+  }
+  .step{position:relative; padding-top:8px;}
+  .step .num{
+    font-family:'Fraunces', serif; font-size:2.6rem; color:var(--coral-100);
+    -webkit-text-stroke:1.5px var(--coral-500);
+    line-height:1;
+  }
+  .step h4{margin:14px 0 8px; font-size:1.08rem;}
+  .step p{color:var(--ink-600); font-size:.92rem;}
+
+  /* ---------- Testimonials ---------- */
+  .testi-wrap{background:var(--dark-900); color:#fff; border-radius:26px; padding:56px 40px;}
+  .testi-wrap .section-head h2, .testi-wrap .section-head p, .testi-wrap .eyebrow{color:#E5EEF6;}
+  .testi-wrap .section-head p{color:#C3D6E4;}
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .testi{
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+    border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;
+  }
+  .stars{color:var(--coral-500); letter-spacing:2px; font-size:.9rem;}
+  .testi h4{font-size:1rem; color:#fff;}
+  .testi p{font-size:.88rem; color:#CFE0EC;}
+  .testi .who{display:flex; align-items:center; gap:10px; margin-top:auto; font-size:.82rem; color:#9FB8CC;}
+  .avatar{
+    width:32px;height:32px;border-radius:50%; background:var(--coral-500); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700;
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* ---------- FAQ accordion ---------- */
+  .faq{max-width:820px; margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--sand-200);}
+  .faq-item summary{
+    list-style:none; cursor:pointer; padding:20px 4px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-weight:700; font-size:1.02rem;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+"; font-size:1.4rem; color:var(--coral-500); font-weight:400;}
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item .faq-body{padding:0 4px 22px; color:var(--ink-600); font-size:.94rem; max-width:70ch;}
+
+  /* ---------- CTA banner ---------- */
+  .cta-banner{
+    background:linear-gradient(120deg, var(--coral-600), var(--coral-500));
+    color:#fff; border-radius:26px; padding:56px 40px; text-align:center;
+  }
+  .cta-banner h2{font-size:clamp(1.7rem,3vw,2.3rem); margin-bottom:14px;}
+  .cta-banner p{color:#EAF6FD; margin-bottom:26px;}
+  .cta-banner .btn-outline{border-color:rgba(255,255,255,.6);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--dark-900); color:#C3D6E4; padding:64px 0 24px; font-size:.9rem;}
+  .foot-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:34px;
+    padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .foot-brand .logo{color:#fff; margin-bottom:14px;}
+  .foot-brand p{max-width:32ch; color:#9FB8CC; font-size:.86rem;}
+  .foot-social{display:flex; gap:12px; margin-top:16px;}
+  .foot-social a{
+    width:34px;height:34px;border-radius:50%; border:1px solid rgba(255,255,255,.22);
+    display:flex; align-items:center; justify-content:center; font-size:.8rem;
+  }
+  footer h5{font-family:'IBM Plex Mono',monospace; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:#E5EEF6; margin-bottom:16px;}
+  footer ul li{margin-bottom:10px;}
+  footer ul li a:hover{color:#fff;}
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding-top:22px;
+    flex-wrap:wrap; gap:12px; font-size:.8rem; color:#7C93A8;
+  }
+  .foot-bottom .legal-links{display:flex; gap:18px; flex-wrap:wrap;}
+
+  @media (max-width: 980px){
+    nav.mainnav{display:none;}
+    .navactions{display:none;}
+    .navtoggle{display:block;}
+    .mobilenav{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{max-width:340px; margin:0 auto;}
+    .card-grid{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:repeat(2,1fr);}
+    .testi-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .trustbar .wrap{gap:18px;}
+  }
+  @media (max-width: 560px){
+    .card-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="trustbar">
+  <div class="wrap">
+    <span>100% refund if not approved</span>
+    <span>Under 1&nbsp;hr provider response</span>
+    <span>USP-compliant pharmacies</span>
+    <span>Free discreet shipping</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap navrow">
+    <a href="index.html" class="logo"><span class="dot"></span>Revel Health</a>
+    <nav class="mainnav">
+      <a href="longevity.html">Longevity</a>
+      <a href="weight-loss.html" class="active">Weight Loss</a>
+      <a href="energy.html">Energy &amp; Vitality</a>
+      <a href="recovery.html">Recovery &amp; Performance</a>
+    </nav>
+    <div class="navactions">
+      <a href="#" class="icon-link">Log in</a>
+      <a href="#pricing" class="btn btn-coral">Get started</a>
+    </div>
+    <button class="navtoggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">☰</button>
+  </div>
+  <div class="mobilenav" id="mobilenav">
+    <a href="longevity.html" onclick="closeMobileNav()">Longevity</a>
+    <a href="weight-loss.html" onclick="closeMobileNav()">Weight Loss</a>
+    <a href="energy.html" onclick="closeMobileNav()">Energy &amp; Vitality</a>
+    <a href="recovery.html" onclick="closeMobileNav()">Recovery &amp; Performance</a>
+    <a href="#" onclick="closeMobileNav()">Log in</a>
+    <a href="#pricing" class="btn btn-coral" onclick="closeMobileNav()">Get started</a>
+  </div>
+</header>
+
+<script>
+  function toggleMobileNav(btn){
+    const panel = document.getElementById('mobilenav');
+    const isOpen = panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    btn.textContent = isOpen ? '✕' : '☰';
+  }
+  function closeMobileNav(){
+    const panel = document.getElementById('mobilenav');
+    panel.classList.remove('open');
+    document.querySelector('.navtoggle').setAttribute('aria-expanded','false');
+    document.querySelector('.navtoggle').textContent = '☰';
+  }
+</script>
+
+<section class="cat-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Weight Loss</p>
+    <p class="eyebrow">Collection</p>
+    <h1>Weight Loss</h1>
+    <p>GLP-1 therapies that curb appetite and support steady, sustainable loss.</p>
+    <a href="#pricing" class="btn btn-coral">See pricing</a>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Transparent pricing</p>
+      <h2>One price. Everything included.</h2>
+      <p>Consultation, medication, supplies, and shipping — no hidden fees, no surprise invoices.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg></div>
+        <h3>Semaglutide Injection</h3>
+        <div class="price">$199<span> /mo</span></div>
+        <p class="first-month">First month $99</p>
+        <a href="#" class="card-cta">Get started →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg></div>
+        <h3>Tirzepatide Injection</h3>
+        <div class="price">$249<span> /mo</span></div>
+        <p class="first-month">First month $149</p>
+        <a href="#" class="card-cta">Get started →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" style="background:#fff;">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The process</p>
+      <h2>How it works</h2>
+      <p>From sign-up to your doorstep, in four clinician-reviewed steps.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <h4>Choose your program</h4>
+        <p>Pick the path that fits your goals — GLP-1s, NAD+, Sermorelin, and more.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h4>Complete your intake</h4>
+        <p>After checkout, finish a secure intake so a licensed provider can review your health profile.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h4>Get your plan</h4>
+        <p>If approved, your provider builds a treatment plan suited to your goals and history.</p>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <h4>Discreet delivery</h4>
+        <p>Your treatment ships straight to your door — tracked, secure, and ready to use.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="testi-wrap">
+      <div class="section-head">
+        <p class="eyebrow">Real people, real change</p>
+        <h2>Member stories</h2>
+        <p>Weight loss, restored energy, and steadier recovery — in members' own words.</p>
+      </div>
+      <div class="testi-grid">
+
+        <div class="testi">
+          <div class="stars">★★★★★</div>
+          <h4>Lost 22 lbs in 3 months</h4>
+          <p>After years of stalled attempts, an affordable, insurance-free path finally delivered visible results and a sense of feeling like herself again.</p>
+          <div class="who"><span class="avatar">CW</span> Carly W. — GLP-1 Program</div>
+        </div>
+
+        <div class="testi">
+          <div class="stars">★★★★★</div>
+          <h4>Energy completely transformed</h4>
+          <p>Persistent exhaustion in his 40s gave way to steady, sustained energy after starting an NAD+ plan built around his routine.</p>
+          <div class="who"><span class="avatar">PC</span> Paul C. — NAD+ Program</div>
+        </div>
+
+        <div class="testi">
+          <div class="stars">★★★★★</div>
+          <h4>Approved the same day</h4>
+          <p>A longtime lifter regained the ability to recover between sessions and sustain muscle growth after starting Sermorelin.</p>
+          <div class="who"><span class="avatar">JS</span> Justin S. — Sermorelin Program</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:#fff;">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Questions</p>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+
+      <details class="faq-item" open>
+        <summary>Who is Revel Health?</summary>
+        <div class="faq-body">Revel Health connects members directly with board-certified physicians who prescribe clinician-grade GLP-1, NAD+, Sermorelin, and longevity therapies online — no waiting rooms, no insurance required. A provider reviews every profile before anything ships, and if a program isn't the right fit, you get a full refund.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How does it work?</summary>
+        <div class="faq-body">Choose a program and complete checkout, finish a short online intake covering your health history and goals, then a licensed provider reviews your information and builds a plan. Once approved, your treatment ships directly from a licensed pharmacy.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What's included in the price?</summary>
+        <div class="faq-body">Every program bundles the secure intake, provider review, medication (if approved), and discreet delivery — pricing stays the same regardless of dosage, with monthly or one-time options available.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What happens if I'm not approved?</summary>
+        <div class="faq-body">You're notified and refunded in full, and any subscription is canceled automatically — there are no ongoing charges and no risk in getting started.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How long does delivery take?</summary>
+        <div class="faq-body">Once your intake is approved, orders are processed and shipped within 3–5 business days, with tracking sent as soon as the package is on its way.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I need insurance?</summary>
+        <div class="faq-body">No — Revel Health is designed to work entirely without insurance. Pricing is transparent and paid out of pocket, with no dosage-based markups.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-banner">
+      <h2>Ready to start your weight loss journey?</h2>
+      <p>Take the quiz, get matched with a licensed provider, and find out what's right for you.</p>
+      <a href="#pricing" class="btn btn-outline">Get started</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo"><span class="dot"></span>Revel Health</a>
+        <p>Clinician-guided weight loss, energy, and longevity care — delivered discreetly, without the waiting room.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div>
+        <h5>Popular</h5>
+        <ul>
+          <li><a href="longevity.html">NAD+</a></li>
+          <li><a href="recovery.html">Sermorelin</a></li>
+          <li><a href="weight-loss.html">GLP-1s</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Blog</h5>
+        <ul>
+          <li><a href="#">View all</a></li>
+          <li><a href="#">What is NAD+?</a></li>
+          <li><a href="#">What is Sermorelin?</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Information</h5>
+        <ul>
+          <li><a href="#contact">Contact us</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#">Partners</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Revel Health. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of service</a>
+        <a href="#">Refund policy</a>
+        <a href="#">Shipping policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
