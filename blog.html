@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NAD+ & Anti-Aging — SD Clinic</title>
+<title>Blog — SD Clinic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -390,7 +390,7 @@
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="consultation.html">Online Consultation</a>
-      <a href="blog.html">Blog</a>
+      <a href="blog.html" class="active">Blog</a>
     </nav>
     <div class="navactions">
       <a href="#" class="icon-link">Log in</a>
@@ -445,60 +445,139 @@
 
 
 
-<section class="cat-hero">
-  <div class="wrap">
-    <p class="breadcrumb"><a href="index.html">Home</a> / NAD+ &amp; Anti-Aging</p>
-    <p class="eyebrow">Cellular health</p>
-    <h1>NAD+ &amp; Anti-Aging</h1>
-    <p>Pharmaceutical-grade NAD+ and NMN formulations for cellular rejuvenation, DNA-repair support, and age-defying wellness.</p>
-    <a href="#products" class="btn btn-coral">See products</a>
+<section style="padding-top:56px;">
+  <div class="wrap" style="max-width:800px; text-align:center;">
+    <p class="eyebrow">The SD Clinic Journal</p>
+    <h1 style="font-size:clamp(1.9rem,3.6vw,2.6rem); margin:12px 0 16px;">Research, explained simply.</h1>
+    <p style="color:var(--ink-600); font-size:1.05rem;">Clinical trial breakdowns, treatment comparisons, and longevity science — written in plain language.</p>
   </div>
 </section>
 
-<section id="products">
+<section style="background:#fff; padding-top:0;">
   <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Products</p>
-      <h2>Support at the cellular level</h2>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom:38px;">
+<button class="btn btn-coral" style="padding:9px 18px; font-size:.85rem;" onclick="filterBlog('All', this)">All</button>
+<button class="btn btn-outline" style="padding:9px 18px; font-size:.85rem;" onclick="filterBlog('Weight Loss', this)">Weight Loss</button>
+<button class="btn btn-outline" style="padding:9px 18px; font-size:.85rem;" onclick="filterBlog('Longevity', this)">Longevity</button>
+<button class="btn btn-outline" style="padding:9px 18px; font-size:.85rem;" onclick="filterBlog('Energy &amp; Vitality', this)">Energy &amp; Vitality</button>
+<button class="btn btn-outline" style="padding:9px 18px; font-size:.85rem;" onclick="filterBlog('Clinic News', this)">Clinic News</button>
     </div>
-    <div class="card-grid">
-      <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M5 9l7-5 7 5M5 15l7 5 7-5"/></svg></div>
-        <h3>NAD+ Anti-Aging Gummies</h3>
-        <p class="blurb">Pharmaceutical-grade NMN (NAD+) gummies with resveratrol, formulated for cellular rejuvenation.</p>
-        <div style="display:flex; gap:6px; flex-wrap:wrap;"><span style="font-size:.72rem; font-weight:600; color:var(--plum-700); background:var(--plum-100); padding:3px 10px; border-radius:100px;">Vegan</span><span style="font-size:.72rem; font-weight:600; color:var(--plum-700); background:var(--plum-100); padding:3px 10px; border-radius:100px;">Sugar-Free</span><span style="font-size:.72rem; font-weight:600; color:var(--plum-700); background:var(--plum-100); padding:3px 10px; border-radius:100px;">Pharmaceutical Grade</span></div>
-        <div class="price">From $49</div>
-        <a href="consultation.html" class="card-cta">Learn more →</a>
+    <div class="card-grid" id="blogGrid">
+      <div class="card" data-cat="Weight Loss">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg></div>
+        <span class="eyebrow" style="color:var(--plum-500);">Weight Loss</span>
+        <h3 style="margin-top:-6px;">Semaglutide vs. Tirzepatide: How to Choose</h3>
+        <p class="blurb">Both are once-weekly GLP-1 therapies, but they act on different gut hormones. Here's how they compare on results, side effects, and who tends to do better on each.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:.78rem; color:var(--ink-600);">July 14, 2026</span>
+          <a href="#" class="card-cta" style="margin-top:0;">Read more →</a>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M5 9l7-5 7 5M5 15l7 5 7-5"/></svg></div>
-        <h3>1-Month NAD+ Anti-Aging Program</h3>
-        <p class="blurb">A complete 30-day NAD+ program for consistent cellular support.</p>
-        <div style="display:flex; gap:6px; flex-wrap:wrap;"><span style="font-size:.72rem; font-weight:600; color:var(--plum-700); background:var(--plum-100); padding:3px 10px; border-radius:100px;">Vegan</span><span style="font-size:.72rem; font-weight:600; color:var(--plum-700); background:var(--plum-100); padding:3px 10px; border-radius:100px;">Sugar-Free</span><span style="font-size:.72rem; font-weight:600; color:var(--plum-700); background:var(--plum-100); padding:3px 10px; border-radius:100px;">Pharmaceutical Grade</span></div>
-        <div class="price">From $147</div>
-        <a href="consultation.html" class="card-cta">Learn more →</a>
+      <div class="card" data-cat="Weight Loss">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg></div>
+        <span class="eyebrow" style="color:var(--plum-500);">Weight Loss</span>
+        <h3 style="margin-top:-6px;">What Happens When You Stop GLP-1 Treatment?</h3>
+        <p class="blurb">Stopping isn't automatic regain — but appetite regulation does change. We break down what the research shows about maintenance after treatment ends.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:.78rem; color:var(--ink-600);">July 8, 2026</span>
+          <a href="#" class="card-cta" style="margin-top:0;">Read more →</a>
+        </div>
       </div>
-      <div class="card">
+      <div class="card" data-cat="Weight Loss">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg></div>
+        <span class="eyebrow" style="color:var(--plum-500);">Weight Loss</span>
+        <h3 style="margin-top:-6px;">GLP-1s and Heart Health: What Recent Trials Show</h3>
+        <p class="blurb">Beyond the scale, newer cardiovascular outcome trials are reshaping how physicians think about GLP-1 therapy for at-risk patients.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:.78rem; color:var(--ink-600);">June 30, 2026</span>
+          <a href="#" class="card-cta" style="margin-top:0;">Read more →</a>
+        </div>
+      </div>
+      <div class="card" data-cat="Longevity">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M5 9l7-5 7 5M5 15l7 5 7-5"/></svg></div>
+        <span class="eyebrow" style="color:var(--plum-500);">Longevity</span>
+        <h3 style="margin-top:-6px;">NAD+ and Cellular Aging: The Science So Far</h3>
+        <p class="blurb">NAD+ levels decline steadily with age. Here's what current research actually supports about restoring them — and where the evidence is still thin.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:.78rem; color:var(--ink-600);">July 12, 2026</span>
+          <a href="#" class="card-cta" style="margin-top:0;">Read more →</a>
+        </div>
+      </div>
+      <div class="card" data-cat="Longevity">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M5 9l7-5 7 5M5 15l7 5 7-5"/></svg></div>
+        <span class="eyebrow" style="color:var(--plum-500);">Longevity</span>
+        <h3 style="margin-top:-6px;">Peptide Therapy 101: What It Is and Who It's For</h3>
+        <p class="blurb">Sermorelin and other peptides work differently than hormone replacement. A plain-language guide to how they're used in longevity medicine.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:.78rem; color:var(--ink-600);">July 2, 2026</span>
+          <a href="#" class="card-cta" style="margin-top:0;">Read more →</a>
+        </div>
+      </div>
+      <div class="card" data-cat="Longevity">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M5 9l7-5 7 5M5 15l7 5 7-5"/></svg></div>
+        <span class="eyebrow" style="color:var(--plum-500);">Longevity</span>
+        <h3 style="margin-top:-6px;">Sleep and Circadian Rhythm: The Overlooked Longevity Lever</h3>
+        <p class="blurb">Poor sleep undercuts nearly every other health intervention. Here's how circadian rhythm actually affects metabolism and recovery.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:.78rem; color:var(--ink-600);">June 24, 2026</span>
+          <a href="#" class="card-cta" style="margin-top:0;">Read more →</a>
+        </div>
+      </div>
+      <div class="card" data-cat="Energy &amp; Vitality">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
-        <h3>NAD+ Age Defense Moisturizer &amp; Serum</h3>
-        <p class="blurb">An NAD-infused skincare duo pairing a moisturizer and serum for visible skin rejuvenation.</p>
-        <div style="display:flex; gap:6px; flex-wrap:wrap;"><span style="font-size:.72rem; font-weight:600; color:var(--plum-700); background:var(--plum-100); padding:3px 10px; border-radius:100px;">Dermatologist Tested</span><span style="font-size:.72rem; font-weight:600; color:var(--plum-700); background:var(--plum-100); padding:3px 10px; border-radius:100px;">Paraben-Free</span></div>
-        <div class="price">From $110</div>
-        <a href="consultation.html" class="card-cta">Learn more →</a>
+        <span class="eyebrow" style="color:var(--plum-500);">Energy &amp; Vitality</span>
+        <h3 style="margin-top:-6px;">Testosterone in Women: An Overlooked Hormone</h3>
+        <p class="blurb">Low testosterone isn't just a men's health topic. Here's how it shows up in women, and why it's rarely tested for.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:.78rem; color:var(--ink-600);">July 10, 2026</span>
+          <a href="#" class="card-cta" style="margin-top:0;">Read more →</a>
+        </div>
+      </div>
+      <div class="card" data-cat="Energy &amp; Vitality">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
+        <span class="eyebrow" style="color:var(--plum-500);">Energy &amp; Vitality</span>
+        <h3 style="margin-top:-6px;">The Gut-Brain Connection and Why It Affects Energy</h3>
+        <p class="blurb">Gut health influences mood, focus, and fatigue more than most people realize. Here's the current thinking on the gut-brain axis.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:.78rem; color:var(--ink-600);">June 20, 2026</span>
+          <a href="#" class="card-cta" style="margin-top:0;">Read more →</a>
+        </div>
+      </div>
+      <div class="card" data-cat="Clinic News">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <span class="eyebrow" style="color:var(--plum-500);">Clinic News</span>
+        <h3 style="margin-top:-6px;">How Online Consultations Actually Work</h3>
+        <p class="blurb">From intake to delivery — a step-by-step look at what happens after you complete our online consultation, and what to expect from your provider.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:auto;">
+          <span style="font-size:.78rem; color:var(--ink-600);">July 16, 2026</span>
+          <a href="#" class="card-cta" style="margin-top:0;">Read more →</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:#fff;">
+<section>
   <div class="wrap">
-    <div class="cta-banner" style="background:var(--plum-700);">
-      <h2>Want injectable NAD+?</h2>
-      <p>Explore our physician-guided NAD+ injection program for a more intensive approach to longevity.</p>
-      <a href="longevity.html" class="btn btn-outline">View the Longevity program</a>
+    <div class="cta-banner">
+      <h2>Have a topic you'd like us to cover?</h2>
+      <p>Reach out and let us know what you'd like to learn more about.</p>
+      <a href="contact.html" class="btn btn-outline">Contact us</a>
     </div>
   </div>
 </section>
+
+<script>
+  function filterBlog(cat, btn){
+    document.querySelectorAll('#blogGrid .card').forEach(card => {
+      card.style.display = (cat==='All' || card.dataset.cat===cat) ? 'flex' : 'none';
+    });
+    document.querySelectorAll('.wrap > div > button.btn').forEach(b => {
+      b.classList.remove('btn-coral'); b.classList.add('btn-outline');
+    });
+    btn.classList.remove('btn-outline'); btn.classList.add('btn-coral');
+  }
+</script>
 
 
 <footer>
