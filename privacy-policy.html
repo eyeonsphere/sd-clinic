@@ -348,13 +348,18 @@
 
   /* ---------- Top utility bar ---------- */
   .utility-bar{ background:var(--plum-900); color:#fff; font-size:.78rem; padding:7px 0; }
-  .utility-bar-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
-  .utility-phone{ color:#fff; font-weight:600; }
-  .utility-phone:hover{ color:var(--plum-100); }
+  .utility-bar-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
   .utility-links{ display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
   .utility-links a{ color:#E8D9E4; font-weight:500; }
   .utility-links a:hover{ color:#fff; }
-  .utility-es{ text-decoration:underline; }
+  .utility-buttons{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .utility-btn{
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.28);
+    color:#fff; font-weight:600; padding:5px 14px; border-radius:100px;
+    font-size:.76rem; white-space:nowrap; transition:background .15s, border-color .15s;
+  }
+  .utility-btn:hover{ background:rgba(255,255,255,.22); border-color:rgba(255,255,255,.45); }
   #google_translate_element{ display:none; }
   .goog-te-banner-frame{ display:none !important; }
   body{ top:0 !important; }
@@ -385,25 +390,19 @@
 
 <div class="utility-bar">
   <div class="wrap utility-bar-inner">
-    <a href="tel:6199144222" class="utility-phone">📞 Call Now: (619) 914-4222</a>
     <div class="utility-links">
       <a href="about.html">About</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
-      <a href="#" onclick="sdSwitchToSpanish(event)" class="utility-es">Haz clic para Español</a>
+    </div>
+    <div class="utility-buttons">
+      <a href="tel:6199144222" class="utility-btn">📞 (619) 914-4222</a>
+      <a href="#" onclick="sdSwitchToSpanish(event)" class="utility-btn">🇲🇽 Haz clic para Español</a>
     </div>
   </div>
 </div>
 <div id="google_translate_element" style="display:none;"></div>
 
-<div class="trustbar">
-  <div class="wrap">
-    <span>100% refund if not approved</span>
-    <span>Under 1&nbsp;hr provider response</span>
-    <span>USP-compliant pharmacies</span>
-    <span>Free discreet shipping</span>
-  </div>
-</div>
 
 <header>
   <div class="wrap navrow">
@@ -693,6 +692,15 @@
   </div>
 </section>
 
+
+<div class="trustbar">
+  <div class="wrap">
+    <span>100% refund if not approved</span>
+    <span>Under 1&nbsp;hr provider response</span>
+    <span>USP-compliant pharmacies</span>
+    <span>Free discreet shipping</span>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
