@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Environment variables (KEEP SECRET!)
+.env.local
+.env
+
+# Large data files
+*.sql
+jackpotp_track.sql
+
+# Scripts that contain sensitive data
+migrate-to-supabase.js
+fix-migration.js
+save-logos.js
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*
+
+# Build output
+dist/
+build/
