@@ -287,6 +287,48 @@
   }
   .foot-bottom .legal-links{display:flex; gap:18px; flex-wrap:wrap;}
 
+
+  /* ---------- Treatments mega menu ---------- */
+  .nav-dropdown{ position:relative; }
+  .nav-trigger{
+    background:none; border:none; font-family:'Poppins',sans-serif; color:var(--ink-900);
+    cursor:pointer; display:flex; align-items:center; gap:5px; padding:6px 2px;
+    border-bottom:2px solid transparent; font-weight:600; font-size:.92rem;
+  }
+  .nav-trigger:hover, .nav-trigger.active{ color:var(--plum-700); border-color:var(--plum-700); }
+  .nav-trigger .chev{ width:10px; height:10px; transition:transform .15s; }
+  .nav-dropdown:hover .chev, .nav-dropdown.open .chev{ transform:rotate(180deg); }
+  .mega-panel{
+    position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px);
+    background:#fff; border:1px solid var(--sand-200); border-radius:16px;
+    box-shadow:0 20px 40px -16px rgba(74,37,69,.28);
+    padding:12px; display:grid; grid-template-columns:1fr 1fr; gap:4px; width:460px;
+    opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .15s, visibility .15s, transform .15s;
+    z-index:60;
+  }
+  .nav-dropdown:hover .mega-panel, .nav-dropdown.open .mega-panel{
+    opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);
+  }
+  .mega-item{ display:flex; gap:12px; padding:11px; border-radius:10px; align-items:flex-start; }
+  .mega-item:hover{ background:var(--plum-050); }
+  .mega-icon{ width:34px; height:34px; border-radius:10px; background:var(--plum-100); display:flex; align-items:center; justify-content:center; flex:none; }
+  .mega-icon svg{ width:17px; height:17px; stroke:var(--plum-700); }
+  .mega-title{ font-weight:600; font-size:.9rem; color:var(--plum-700); margin-bottom:2px; }
+  .mega-blurb{ font-size:.76rem; color:var(--ink-600); line-height:1.4; }
+
+  .mobile-accordion-trigger{
+    width:100%; text-align:left; background:none; border:none; font-family:'Poppins',sans-serif;
+    color:var(--ink-900); font-weight:600; font-size:.95rem; padding:14px 28px;
+    border-top:1px solid var(--sand-200); display:flex; justify-content:space-between;
+    align-items:center; cursor:pointer;
+  }
+  .mobile-accordion-trigger .chev{ width:11px; height:11px; transition:transform .2s; }
+  .mobile-accordion-trigger.open .chev{ transform:rotate(180deg); }
+  .mobile-accordion-panel{ max-height:0; overflow:hidden; transition:max-height .25s ease; background:var(--plum-050); }
+  .mobile-accordion-panel.open{ max-height:320px; }
+  .mobile-accordion-panel a{ padding:12px 40px !important; border-top:none !important; font-weight:500 !important; font-size:.9rem; }
+
   @media (max-width: 980px){
     nav.mainnav{display:none;}
     .navactions{display:none;}
@@ -322,11 +364,29 @@
   <div class="wrap navrow">
     <a href="index.html" class="logo"><span class="dot"></span>SD Clinic</a>
     <nav class="mainnav">
-      <a href="longevity.html">Longevity</a>
-      <a href="weight-loss.html">Weight Loss</a>
-      <a href="energy.html">Energy &amp; Vitality</a>
-      <a href="recovery.html">Recovery &amp; Performance</a>
+      <div class="nav-dropdown">
+        <button class="nav-trigger" onclick="toggleMegaMenu(this)">Treatments <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+        <div class="mega-panel">
+      <a href="longevity.html" class="mega-item">
+        <div class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M5 9l7-5 7 5M5 15l7 5 7-5"/></svg></div>
+        <div><div class="mega-title">Longevity</div><div class="mega-blurb">Cellular and hormonal support built for the long game.</div></div>
+      </a>
+      <a href="weight-loss.html" class="mega-item">
+        <div class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg></div>
+        <div><div class="mega-title">Weight Loss</div><div class="mega-blurb">GLP-1 therapies for steady, sustainable loss.</div></div>
+      </a>
+      <a href="energy.html" class="mega-item">
+        <div class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
+        <div><div class="mega-title">Energy &amp; Vitality</div><div class="mega-blurb">Steadier energy, without the crash.</div></div>
+      </a>
+      <a href="recovery.html" class="mega-item">
+        <div class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 12h4l2-7 4 14 2-7h4"/></svg></div>
+        <div><div class="mega-title">Recovery &amp; Performance</div><div class="mega-blurb">Muscle repair, sleep, and faster bounce-back.</div></div>
+      </a>
+        </div>
+      </div>
       <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
       <a href="consultation.html">Online Consultation</a>
     </nav>
     <div class="navactions">
@@ -336,11 +396,15 @@
     <button class="navtoggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">☰</button>
   </div>
   <div class="mobilenav" id="mobilenav">
-    <a href="longevity.html" onclick="closeMobileNav()">Longevity</a>
-    <a href="weight-loss.html" onclick="closeMobileNav()">Weight Loss</a>
-    <a href="energy.html" onclick="closeMobileNav()">Energy &amp; Vitality</a>
-    <a href="recovery.html" onclick="closeMobileNav()">Recovery &amp; Performance</a>
+    <button class="mobile-accordion-trigger" onclick="toggleMobileAccordion(this)">Treatments <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+    <div class="mobile-accordion-panel">
+      <a href="longevity.html" onclick="closeMobileNav()">Longevity</a>
+      <a href="weight-loss.html" onclick="closeMobileNav()">Weight Loss</a>
+      <a href="energy.html" onclick="closeMobileNav()">Energy &amp; Vitality</a>
+      <a href="recovery.html" onclick="closeMobileNav()">Recovery &amp; Performance</a>
+    </div>
     <a href="about.html" onclick="closeMobileNav()">About</a>
+    <a href="contact.html" onclick="closeMobileNav()">Contact</a>
     <a href="consultation.html" onclick="closeMobileNav()">Online Consultation</a>
     <a href="#" onclick="closeMobileNav()">Log in</a>
     <a href="#pricing" class="btn btn-coral" onclick="closeMobileNav()">Get started</a>
@@ -359,6 +423,20 @@
     panel.classList.remove('open');
     document.querySelector('.navtoggle').setAttribute('aria-expanded','false');
     document.querySelector('.navtoggle').textContent = '☰';
+  }
+</script>
+<script>
+  function toggleMegaMenu(btn){
+    btn.closest('.nav-dropdown').classList.toggle('open');
+  }
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd=>{
+      if(!dd.contains(e.target)) dd.classList.remove('open');
+    });
+  });
+  function toggleMobileAccordion(btn){
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
   }
 </script>
 
