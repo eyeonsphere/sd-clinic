@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight-Loss Consultation — SD Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1F1B1D;
+    --ink-soft:#6B6266;
+    --paper:#F8F3F2;
+    --panel:#FFFFFF;
+    --line:#EAE1DE;
+    --teal:#4A2545;
+    --teal-deep:#2E1330;
+    --mint:#F1E4EF;
+    --gold:#6B3F63;
+    --gold-soft:#F3EAD9;
+    --danger:#8C3A2B;
+    --danger-bg:#F5E5DF;
+    --ok:#4A2545;
+    --radius:14px;
+    font-size:16px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Poppins', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding:32px 16px 64px;
+  }
+  .wrap{ max-width:640px; margin:0 auto; }
+
+  .brand{ display:flex; align-items:center; gap:10px; margin-bottom:28px; }
+  .brand-dot{ width:9px; height:9px; border-radius:50%; background:var(--teal); flex:none; }
+  .brand-name{ font-family:'Poppins', sans-serif; font-size:19px; font-weight:600; letter-spacing:0.01em; }
+  .brand-sub{ font-size:12px; color:var(--ink-soft); margin-top:-2px; }
+
+  .progress{ margin-bottom:30px; }
+  .progress-track{ height:6px; background:var(--line); border-radius:99px; overflow:hidden; margin-bottom:10px; }
+  .progress-fill{ height:100%; background:linear-gradient(90deg, var(--teal), var(--gold)); border-radius:99px; transition:width .45s cubic-bezier(.65,0,.35,1); }
+  .progress-labels{ display:flex; justify-content:space-between; font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; font-weight:600; }
+  .progress-labels span.active{ color:var(--teal-deep); }
+
+  .card{ background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:34px 30px; box-shadow:0 1px 2px rgba(22,48,43,0.04); }
+
+  .step-eyebrow{ font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  h1{ font-family:'Poppins', sans-serif; font-weight:500; font-size:26px; line-height:1.25; margin:0 0 10px; }
+  .helper{ color:var(--ink-soft); font-size:14.5px; line-height:1.55; margin-bottom:26px; }
+
+  label.field-label{ display:block; font-size:13.5px; font-weight:600; margin-bottom:7px; color:var(--ink); }
+  .row2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .row3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+  .field{ margin-bottom:20px; }
+  select, input[type=text], input[type=number]{
+    width:100%; padding:12px 13px; border-radius:10px; border:1.5px solid var(--line);
+    background:#fff; font-family:'Poppins',sans-serif; font-size:15px; color:var(--ink);
+    appearance:none; -webkit-appearance:none;
+  }
+  select{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236B6266'><path d='M5.5 7.5l4.5 5 4.5-5z'/></svg>");
+    background-repeat:no-repeat; background-position:right 12px center; background-size:16px;
+  }
+  select:focus, input:focus{ outline:2.5px solid var(--teal); outline-offset:1px; border-color:var(--teal); }
+
+  .choice-list{ display:flex; flex-direction:column; gap:9px; }
+  .choice{
+    border:1.5px solid var(--line); border-radius:10px; padding:13px 15px;
+    display:flex; align-items:center; gap:11px; cursor:pointer; background:#fff;
+    font-size:14.5px; transition:border-color .15s, background .15s;
+  }
+  .choice:hover{ border-color:var(--gold); }
+  .choice input{ accent-color:var(--teal); width:17px; height:17px; flex:none; }
+  .choice.checked{ border-color:var(--teal); background:var(--mint); }
+  .choice-2col{ display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+
+  .why-we-ask{ margin-top:6px; font-size:12.5px; color:var(--ink-soft); background:var(--mint); border-radius:9px; padding:10px 13px; line-height:1.5; }
+
+  .crisis-box{
+    margin-top:14px; border:1.5px solid #D8B88A; background:var(--gold-soft);
+    border-radius:10px; padding:14px 15px; font-size:13.5px; line-height:1.6; color:var(--teal-deep);
+  }
+  .crisis-box strong{ display:block; margin-bottom:3px; }
+
+  .timeline-box{
+    background:var(--mint); border-radius:12px; padding:18px 20px; margin-bottom:22px; text-align:center;
+  }
+  .timeline-box .big{ font-size:15px; line-height:1.6; color:var(--teal-deep); }
+  .timeline-box .big b{ font-size:17px; }
+
+  .btn-row{ display:flex; justify-content:space-between; align-items:center; margin-top:28px; gap:12px; }
+  button{ font-family:'Poppins',sans-serif; cursor:pointer; border:none; }
+  .btn-back{ background:transparent; color:var(--ink-soft); font-size:14px; font-weight:600; padding:12px 6px; }
+  .btn-next{
+    background:var(--teal-deep); color:#fff; font-weight:600; font-size:15px;
+    padding:13px 26px; border-radius:99px; transition:background .15s, transform .1s;
+    display:flex; align-items:center; gap:8px;
+  }
+  .btn-next:hover{ background:var(--teal); }
+  .btn-next:active{ transform:scale(.98); }
+  .btn-next:disabled{ background:#C9C2AF; cursor:not-allowed; }
+
+  /* BMI dial - signature element */
+  .dial-wrap{ display:flex; flex-direction:column; align-items:center; margin:6px 0 26px; }
+  .dial-value{ font-family:'Poppins', sans-serif; font-size:15px; color:var(--ink-soft); margin-top:6px; }
+  .dial-value b{ color:var(--ink); font-size:15px; }
+
+  .result-hero{ text-align:center; padding:6px 0 8px; }
+  .result-badge{
+    display:inline-flex; align-items:center; gap:8px; padding:7px 16px; border-radius:99px;
+    font-size:12.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; margin-bottom:16px;
+  }
+  .badge-eligible{ background:var(--mint); color:var(--teal-deep); }
+  .badge-review{ background:var(--gold-soft); color:#7A5622; }
+  .badge-not{ background:var(--danger-bg); color:var(--danger); }
+  .result-stats{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin:22px 0; }
+  .stat{ background:var(--mint); border-radius:10px; padding:14px 10px; text-align:center; }
+  .stat .num{ font-family:'Poppins',sans-serif; font-size:20px; color:var(--teal-deep); }
+  .stat .lab{ font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.04em; margin-top:2px; }
+  .reasons{ list-style:none; padding:0; margin:18px 0 0; }
+  .reasons li{ display:flex; gap:10px; font-size:14px; padding:9px 0; border-top:1px solid var(--line); }
+  .reasons li .dot{ width:7px; height:7px; border-radius:99px; margin-top:6px; flex:none; }
+  .dot-ok{ background:var(--ok); }
+  .dot-flag{ background:var(--danger); }
+
+  .submitted{ text-align:center; padding:20px 0; }
+  .submitted .check{
+    width:56px; height:56px; border-radius:50%; background:var(--mint); color:var(--teal-deep);
+    display:flex; align-items:center; justify-content:center; font-size:1.6rem; margin:0 auto 18px;
+  }
+
+  @media (max-width:480px){
+    .card{ padding:26px 20px; }
+    .row2, .row3, .choice-2col{ grid-template-columns:1fr; }
+    .result-stats{ grid-template-columns:1fr; }
+    h1{ font-size:22px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <a href="index.html" class="brand" style="text-decoration:none; color:inherit;">
+    <span class="brand-dot"></span>
+    <div>
+      <div class="brand-name">SD Clinic</div>
+      <div class="brand-sub">Weight-loss consultation</div>
+    </div>
+  </a>
+
+  <div class="progress">
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:6%"></div></div>
+    <div class="progress-labels" id="progressLabels"></div>
+  </div>
+
+  <div class="card" id="card"></div>
+</div>
+
+<script>
+const PHASES = ["Start","Preliminary","Health","Details","Eligibility"];
+// phase index for each of the 15 steps (0-14)
+const PHASE_OF_STEP = [0, 1,1,1,1,1, 2,2,2,2,2,2, 3,3, 4];
+const TOTAL_STEPS = PHASE_OF_STEP.length;
+let step = 0;
+
+const data = {
+  heightFt:null, heightIn:null, weight:null, goalWeight:null,
+  dobYear:null, sex:null,
+  pregnancyFlags:[], symptomFlags:[],
+  goal:null, paceOk:null,
+  conditionsA:[], conditionsB:[],
+  suicidal:null,
+  recentGlp1:null, opiateUse:null,
+  priorSurgery:null, priorPrograms:null, weightTrend:null,
+  lifestyleFlags:[],
+  bpRange:null, restingHr:null,
+  currentMeds:null, additionalNotes:null,
+  firstName:"", lastName:"", state:""
+};
+
+const CONTRA_CONDITIONS = {
+  mtc_men2:"Personal or family history of Medullary Thyroid Carcinoma or MEN-2",
+  pancreatitis:"History of or current pancreatitis",
+  t1_diabetes:"Type 1 diabetes",
+  active_cancer:"Active cancer, in treatment, or in remission under 5 years"
+};
+const COMORBIDITIES = {
+  hypertension:"Hypertension",
+  cholesterol:"High cholesterol",
+  t2_diabetes:"Type 2 diabetes",
+  sleep_apnea:"Sleep apnea",
+  metabolic_syndrome:"Metabolic syndrome",
+  heart_disease:"Heart disease, stroke, or peripheral vascular disease",
+  gout:"Gout"
+};
+const OTHER_CONDITIONS = {
+  gallbladder:"Gallbladder disease",
+  fatty_liver:"Fatty liver disease (MASLD/MASH)",
+  cirrhosis:"Cirrhosis or end-stage liver disease",
+  ckd:"Chronic kidney disease (Stage 3+)",
+  thyroid:"Hypo/hyperthyroidism or other thyroid issue",
+  retinopathy:"Diabetic retinopathy",
+  blood_thinners:"Currently on blood thinners"
+};
+
+const US_STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+
+function bmi(){
+  const ft = parseFloat(data.heightFt), inch = parseFloat(data.heightIn), w = parseFloat(data.weight);
+  if(!ft && ft!==0) return null;
+  if(!w) return null;
+  const totalInches = (ft*12)+(inch||0);
+  if(totalInches<=0) return null;
+  return (703 * w) / (totalInches*totalInches);
+}
+function age(){
+  if(!data.dobYear) return null;
+  return new Date().getFullYear() - parseInt(data.dobYear);
+}
+function weeklyLossRange(){
+  const w = parseFloat(data.weight);
+  if(!w) return null;
+  return { low: w*0.005, high: w*0.01 };
+}
+function weeksToGoal(){
+  const w = parseFloat(data.weight), g = parseFloat(data.goalWeight);
+  const r = weeklyLossRange();
+  if(!w || !g || !r || w<=g) return null;
+  const avgLoss = (r.low+r.high)/2;
+  return Math.round((w-g)/avgLoss);
+}
+
+function shouldSkip(i){
+  if((i===2||i===3) && data.sex!=='female') return true;
+  return false;
+}
+function goNext(){
+  do { step++; } while(step<TOTAL_STEPS-1 && shouldSkip(step));
+  if(step>TOTAL_STEPS-1) step=TOTAL_STEPS-1;
+  rerender(); window.scrollTo({top:0, behavior:'smooth'});
+}
+function goBack(){
+  do { step--; } while(step>0 && shouldSkip(step));
+  if(step<0) step=0;
+  rerender(); window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function renderProgress(){
+  const phaseIdx = PHASE_OF_STEP[step];
+  document.getElementById('progressFill').style.width = ((step+1)/TOTAL_STEPS*100)+'%';
+  const labelsEl = document.getElementById('progressLabels');
+  labelsEl.innerHTML = PHASES.map((p,i)=>`<span class="${i<=phaseIdx?'active':''}">${p}</span>`).join('');
+}
+
+function choiceRow(name, value, label, checked, extraAttrs=""){
+  return `<label class="choice ${checked?'checked':''}">
+    <input type="radio" name="${name}" value="${value}" ${checked?'checked':''} ${extraAttrs} onchange="handleRadio(this)">
+    <span>${label}</span>
+  </label>`;
+}
+function checkboxRow(group, id, label, checked){
+  return `<label class="choice ${checked?'checked':''}">
+    <input type="checkbox" data-group="${group}" value="${id}" ${checked?'checked':''} onchange="handleCheckbox(this,'${group}')">
+    <span>${label}</span>
+  </label>`;
+}
+window.handleRadio = function(el){
+  el.closest('.card').querySelectorAll(`input[name="${el.name}"]`).forEach(i=>{
+    i.closest('.choice').classList.toggle('checked', i.checked);
+  });
+};
+function fieldForGroup(group){
+  const map = { cond:'conditionsA', condB:'conditionsB', preg:'pregnancyFlags', sym:'symptomFlags', life:'lifestyleFlags' };
+  return map[group];
+}
+window.handleCheckbox = function(el, group){
+  el.closest('.choice').classList.toggle('checked', el.checked);
+  const field = fieldForGroup(group);
+  const id = el.value;
+  if(el.checked){ if(!data[field].includes(id)) data[field].push(id); }
+  else { data[field] = data[field].filter(c=>c!==id); }
+  const noneVal = (group==='life') ? 'neither' : 'none';
+  if(id===noneVal){
+    if(el.checked){
+      data[field] = [noneVal];
+      el.closest('.choice-list').querySelectorAll('input[type=checkbox]').forEach(i=>{
+        if(i.value!==noneVal){ i.checked=false; i.closest('.choice').classList.remove('checked'); }
+      });
+    }
+  } else if(el.checked){
+    data[field] = data[field].filter(c=>c!==noneVal);
+    const noneBox = el.closest('.choice-list').querySelector(`input[value="${noneVal}"]`);
+    if(noneBox){ noneBox.checked=false; noneBox.closest('.choice').classList.remove('checked'); }
+  }
+};
+
+function updateDial(){
+  const b = bmi();
+  const el = document.getElementById('dialSvg');
+  if(!el) return;
+  const clamped = b ? Math.max(15, Math.min(45, b)) : 15;
+  const pct = (clamped-15)/(45-15);
+  const angle = -90 + pct*180;
+  document.getElementById('dialNeedle').setAttribute('transform', `rotate(${angle} 100 100)`);
+  document.getElementById('bmiReadout').innerHTML = b ? `Estimated BMI: <b>${b.toFixed(1)}</b>` : 'Enter height & weight';
+}
+
+/* ---------- Step 0: Body stats ---------- */
+function stepBody(){
+  return `
+    <div class="step-eyebrow">Let's start</div>
+    <h1>Tell us your body stats.</h1>
+    <div class="helper">We'll use these to estimate your BMI and build your treatment profile.</div>
+
+    <div class="dial-wrap">
+      <svg id="dialSvg" width="200" height="115" viewBox="0 0 200 115">
+        <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#EAE1DE" stroke-width="14" stroke-linecap="round"/>
+        <path d="M 20 100 A 80 80 0 0 1 100 20" fill="none" stroke="#4A2545" stroke-width="14" stroke-linecap="round" opacity="0.55"/>
+        <path d="M 100 20 A 80 80 0 0 1 180 100" fill="none" stroke="#6B3F63" stroke-width="14" stroke-linecap="round" opacity="0.55"/>
+        <g id="dialNeedle" transform="rotate(-90 100 100)">
+          <line x1="100" y1="100" x2="100" y2="32" stroke="#1F1B1D" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="100" r="6" fill="#1F1B1D"/>
+        </g>
+      </svg>
+      <div class="dial-value" id="bmiReadout">Enter height & weight</div>
+    </div>
+
+    <div class="row2">
+      <div class="field">
+        <label class="field-label">Height (ft)</label>
+        <select onchange="data.heightFt=this.value; updateDial(); syncNext();">
+          <option value="">Select…</option>
+          ${[3,4,5,6,7].map(f=>`<option value="${f}" ${data.heightFt==f?'selected':''}>${f} ft</option>`).join('')}
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label">Height (in)</label>
+        <select onchange="data.heightIn=this.value; updateDial(); syncNext();">
+          <option value="">Select…</option>
+          ${[0,1,2,3,4,5,6,7,8,9,10,11].map(i=>`<option value="${i}" ${data.heightIn==i?'selected':''}>${i} in</option>`).join('')}
+        </select>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label class="field-label">Current weight (lbs)</label>
+        <input type="number" placeholder="e.g. 210" value="${data.weight||''}" oninput="data.weight=this.value; updateDial(); syncNext();">
+      </div>
+      <div class="field">
+        <label class="field-label">Goal weight (lbs)</label>
+        <input type="number" placeholder="e.g. 175" value="${data.goalWeight||''}" oninput="data.goalWeight=this.value; syncNext();">
+      </div>
+    </div>
+  `;
+}
+
+/* ---------- Step 1: About you ---------- */
+function stepAbout(){
+  const years = [];
+  const thisYear = new Date().getFullYear();
+  for(let y=thisYear-13; y>=thisYear-90; y--) years.push(y);
+  return `
+    <div class="step-eyebrow">Preliminary</div>
+    <h1>Tell us about yourself.</h1>
+    <div class="helper">Weight-loss medications require age verification and may involve pregnancy screening.</div>
+
+    <div class="field">
+      <label class="field-label">Birth year</label>
+      <select onchange="data.dobYear=this.value; syncNext();">
+        <option value="">Select…</option>
+        ${years.map(y=>`<option value="${y}" ${data.dobYear==y?'selected':''}>${y}</option>`).join('')}
+      </select>
+    </div>
+
+    <div class="field">
+      <label class="field-label">Sex assigned at birth</label>
+      <div class="choice-list">
+        ${choiceRow('sex','female','Female', data.sex==='female', `onclick="data.sex='female'; syncNext();"`)}
+        ${choiceRow('sex','male','Male', data.sex==='male', `onclick="data.sex='male'; syncNext();"`)}
+      </div>
+    </div>
+    <div class="why-we-ask">Why we ask: these medications are only prescribed to adults 18+, and biological sex determines pregnancy-related safety screening.</div>
+  `;
+}
+
+/* ---------- Step 2: Pregnancy screening (female only) ---------- */
+function stepPregnancy(){
+  return `
+    <div class="step-eyebrow">Preliminary</div>
+    <h1>Safety screening.</h1>
+    <div class="helper">Do any of these apply to you?</div>
+    <div class="choice-list">
+      ${checkboxRow('preg','pregnant','Currently or possibly pregnant', data.pregnancyFlags.includes('pregnant'))}
+      ${checkboxRow('preg','breastfeeding','Breastfeeding or bottle-feeding with breastmilk', data.pregnancyFlags.includes('breastfeeding'))}
+      ${checkboxRow('preg','recent_birth','Given birth within the last 6 months', data.pregnancyFlags.includes('recent_birth'))}
+      ${checkboxRow('preg','none','None of the above', data.pregnancyFlags.includes('none'))}
+    </div>
+  `;
+}
+
+/* ---------- Step 3: Symptom check (female only) ---------- */
+function stepSymptoms(){
+  return `
+    <div class="step-eyebrow">Preliminary</div>
+    <h1>A few more details help us personalize your plan.</h1>
+    <div class="helper">Do you experience any of the following?</div>
+    <div class="choice-list">
+      ${checkboxRow('sym','libido','Low libido', data.symptomFlags.includes('libido'))}
+      ${checkboxRow('sym','hair','Hair loss', data.symptomFlags.includes('hair'))}
+      ${checkboxRow('sym','skin','Skin issues', data.symptomFlags.includes('skin'))}
+      ${checkboxRow('sym','cognition','Cognition issues', data.symptomFlags.includes('cognition'))}
+      ${checkboxRow('sym','none','None of these', data.symptomFlags.includes('none'))}
+    </div>
+    <div class="why-we-ask">This helps tailor your treatment plan. All goals may benefit from GLP-1 therapy.</div>
+  `;
+}
+
+/* ---------- Step 4: Primary goal ---------- */
+function stepGoal(){
+  return `
+    <div class="step-eyebrow">Preliminary</div>
+    <h1>What's your primary goal?</h1>
+    <div class="choice-list">
+      ${choiceRow('goal','lose','Lose weight', data.goal==='lose', `onclick="data.goal='lose'; syncNext();"`)}
+      ${choiceRow('goal','muscle','Build muscle', data.goal==='muscle', `onclick="data.goal='muscle'; syncNext();"`)}
+      ${choiceRow('goal','maintain','Maintain my current body', data.goal==='maintain', `onclick="data.goal='maintain'; syncNext();"`)}
+    </div>
+  `;
+}
+
+/* ---------- Step 5: Projected timeline ---------- */
+function stepTimeline(){
+  const r = weeklyLossRange();
+  const weeks = weeksToGoal();
+  const summary = (r && weeks) ?
+    `Based on your profile, you could lose approximately <b>${r.low.toFixed(1)}–${r.high.toFixed(1)} lbs per week</b>, reaching your goal in about <b>${weeks} weeks</b>.` :
+    `Enter your weight and goal weight on step 1 to see a projected timeline.`;
+  return `
+    <div class="step-eyebrow">Preliminary</div>
+    <h1>Your projected timeline.</h1>
+    <div class="timeline-box"><div class="big">${summary}</div></div>
+    <div class="field">
+      <label class="field-label">Does this pace work for you?</label>
+      <div class="choice-list">
+        ${choiceRow('pace','yes','Yes, that works', data.paceOk==='yes', `onclick="data.paceOk='yes'; syncNext();"`)}
+        ${choiceRow('pace','faster','I would prefer faster results', data.paceOk==='faster', `onclick="data.paceOk='faster'; syncNext();"`)}
+        ${choiceRow('pace','tooslow','That seems too fast', data.paceOk==='tooslow', `onclick="data.paceOk='tooslow'; syncNext();"`)}
+      </div>
+    </div>
+    <div class="why-we-ask">Patients on GLP-1 therapy typically see 15–20% total body weight reduction over 12 months.</div>
+  `;
+}
+
+/* ---------- Step 6: Cardio/metabolic conditions ---------- */
+function stepConditionsA(){
+  return `
+    <div class="step-eyebrow">Health</div>
+    <h1>Medical history: cardiovascular & metabolic.</h1>
+    <div class="helper">Select any conditions you currently have or have been diagnosed with.</div>
+    <div class="choice-list">
+      ${checkboxRow('cond','none','None of these', data.conditionsA.includes('none'))}
+      ${Object.entries(COMORBIDITIES).map(([id,l])=>checkboxRow('cond',id,l,data.conditionsA.includes(id))).join('')}
+      ${Object.entries(CONTRA_CONDITIONS).map(([id,l])=>checkboxRow('cond',id,l,data.conditionsA.includes(id))).join('')}
+    </div>
+    <div class="why-we-ask">Why we ask: certain conditions may affect prescribing. Answers are reviewed by a licensed provider and protected under HIPAA.</div>
+  `;
+}
+
+/* ---------- Step 7: Organ/systemic conditions ---------- */
+function stepConditionsB(){
+  return `
+    <div class="step-eyebrow">Health</div>
+    <h1>Medical history: organ & systemic.</h1>
+    <div class="helper">Select any conditions you currently have or have been diagnosed with.</div>
+    <div class="choice-list">
+      ${checkboxRow('condB','none','None of these', data.conditionsB.includes('none'))}
+      ${Object.entries(OTHER_CONDITIONS).map(([id,l])=>checkboxRow('condB',id,l,data.conditionsB.includes(id))).join('')}
+    </div>
+    <div class="why-we-ask">Why we ask: certain conditions may affect prescribing. Answers are reviewed by a licensed provider and protected under HIPAA.</div>
+  `;
+}
+
+/* ---------- Step 8: Safety ---------- */
+function stepSafety(){
+  return `
+    <div class="step-eyebrow">Health</div>
+    <h1>One important safety question.</h1>
+    <div class="helper">We ask this to keep you safe and connect you with support if needed. This does not disqualify you from care.</div>
+    <div class="choice-list">
+      ${choiceRow('suicidal','yes','Yes', data.suicidal==='yes', `onclick="data.suicidal='yes'; rerender()"`)}
+      ${choiceRow('suicidal','no','No', data.suicidal==='no', `onclick="data.suicidal='no'; rerender()"`)}
+    </div>
+    ${data.suicidal==='yes' ? `
+      <div class="crisis-box">
+        <strong>You're not alone, and support is available right now.</strong>
+        If you're in the US, you can call or text 988 to reach the Suicide & Crisis Lifeline, any time, free and confidential.
+        A member of the care team will also follow up with you directly before any treatment decision is made.
+      </div>
+    ` : ''}
+  `;
+}
+
+/* ---------- Step 9: Medication history ---------- */
+function stepMedHistory(){
+  return `
+    <div class="step-eyebrow">Health</div>
+    <h1>Medication history.</h1>
+    <div class="field">
+      <label class="field-label">Have you taken weight-loss medication within the past 4 weeks?</label>
+      <div class="choice-list">
+        ${choiceRow('recentglp1','glp1','Yes, a GLP-1 medication', data.recentGlp1==='glp1', `onclick="data.recentGlp1='glp1'"`)}
+        ${choiceRow('recentglp1','other','Yes, a different medication', data.recentGlp1==='other', `onclick="data.recentGlp1='other'"`)}
+        ${choiceRow('recentglp1','no','No', data.recentGlp1==='no', `onclick="data.recentGlp1='no'"`)}
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Have you used opiate pain medications in the past 3 months?</label>
+      <div class="choice-list">
+        ${choiceRow('opiate','yes','Yes', data.opiateUse==='yes', `onclick="data.opiateUse='yes'"`)}
+        ${choiceRow('opiate','no','No', data.opiateUse==='no', `onclick="data.opiateUse='no'"`)}
+      </div>
+    </div>
+    <div class="why-we-ask">Why we ask: these medications may interact with GLP-1 therapy. Your provider needs this for safe prescribing.</div>
+  `;
+}
+
+/* ---------- Step 10: Weight-loss background ---------- */
+function stepBackground(){
+  return `
+    <div class="step-eyebrow">Health</div>
+    <h1>Your weight-loss background.</h1>
+    <div class="field">
+      <label class="field-label">Have you had weight-loss surgery?</label>
+      <div class="choice-list">
+        ${choiceRow('surgery','yes','Yes', data.priorSurgery==='yes', `onclick="data.priorSurgery='yes'"`)}
+        ${choiceRow('surgery','no','No', data.priorSurgery==='no', `onclick="data.priorSurgery='no'"`)}
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Have you tried structured weight-loss programs before?</label>
+      <div class="choice-list">
+        ${choiceRow('programs','yes','Yes', data.priorPrograms==='yes', `onclick="data.priorPrograms='yes'"`)}
+        ${choiceRow('programs','no','No', data.priorPrograms==='no', `onclick="data.priorPrograms='no'"`)}
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">How has your weight changed in the past year?</label>
+      <select onchange="data.weightTrend=this.value;">
+        <option value="">Select…</option>
+        ${[["lost_a_lot","Lost significantly"],["lost_a_little","Lost a little"],["same","About the same"],["gained_a_little","Gained a little"],["gained_a_lot","Gained significantly"]].map(([v,l])=>`<option value="${v}" ${data.weightTrend===v?'selected':''}>${l}</option>`).join('')}
+      </select>
+    </div>
+  `;
+}
+
+/* ---------- Step 11: Lifestyle willingness ---------- */
+function stepLifestyle(){
+  return `
+    <div class="step-eyebrow">Health</div>
+    <h1>Lifestyle alongside treatment.</h1>
+    <div class="helper">GLP-1 therapy works best combined with healthy habits. If clinically appropriate, are you willing to:</div>
+    <div class="choice-list">
+      ${checkboxRow('life','calories','Adjust my caloric intake', data.lifestyleFlags.includes('calories'))}
+      ${checkboxRow('life','activity','Increase my physical activity', data.lifestyleFlags.includes('activity'))}
+      ${checkboxRow('life','neither','Neither at this time', data.lifestyleFlags.includes('neither'))}
+    </div>
+  `;
+}
+
+/* ---------- Step 12: Vitals ---------- */
+function stepVitals(){
+  return `
+    <div class="step-eyebrow">Details</div>
+    <h1>Your vitals.</h1>
+    <div class="helper">Approximate ranges are fine.</div>
+    <div class="field">
+      <label class="field-label">Blood pressure range</label>
+      <div class="choice-list">
+        ${choiceRow('bp','normal','Below 120/80 (Normal)', data.bpRange==='normal', `onclick="data.bpRange='normal'"`)}
+        ${choiceRow('bp','elevated','120–129/under 80 (Elevated)', data.bpRange==='elevated', `onclick="data.bpRange='elevated'"`)}
+        ${choiceRow('bp','high1','130–139/80–89 (High, Stage 1)', data.bpRange==='high1', `onclick="data.bpRange='high1'"`)}
+        ${choiceRow('bp','high2','140/90 or above (High, Stage 2)', data.bpRange==='high2', `onclick="data.bpRange='high2'"`)}
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">Resting heart rate</label>
+      <div class="choice-list">
+        ${choiceRow('hr','slow','Under 60 bpm (Slow)', data.restingHr==='slow', `onclick="data.restingHr='slow'"`)}
+        ${choiceRow('hr','normal','60–100 bpm (Normal)', data.restingHr==='normal', `onclick="data.restingHr='normal'"`)}
+        ${choiceRow('hr','fastish','101–110 bpm (Slightly fast)', data.restingHr==='fastish', `onclick="data.restingHr='fastish'"`)}
+        ${choiceRow('hr','fast','Above 110 bpm (Fast)', data.restingHr==='fast', `onclick="data.restingHr='fast'"`)}
+      </div>
+    </div>
+  `;
+}
+
+/* ---------- Step 13: Additional info ---------- */
+function stepAdditional(){
+  return `
+    <div class="step-eyebrow">Details</div>
+    <h1>Anything else your provider should know?</h1>
+    <div class="field">
+      <label class="field-label">Do you currently take any medications?</label>
+      <div class="choice-list">
+        ${choiceRow('curmeds','yes','Yes', data.currentMeds==='yes', `onclick="data.currentMeds='yes'; rerender()"`)}
+        ${choiceRow('curmeds','no','No', data.currentMeds==='no', `onclick="data.currentMeds='no'; rerender()"`)}
+      </div>
+    </div>
+    ${data.currentMeds==='yes' ? `
+      <div class="field">
+        <label class="field-label">List your current medications</label>
+        <input type="text" placeholder="e.g. metformin, lisinopril" value="${data.currentMedsList||''}" oninput="data.currentMedsList=this.value">
+      </div>
+    ` : ''}
+    <div class="field">
+      <label class="field-label">Anything additional for your care team?</label>
+      <input type="text" placeholder="Optional" value="${data.additionalNotesText||''}" oninput="data.additionalNotesText=this.value">
+    </div>
+    <div class="why-we-ask">Your responses are encrypted and HIPAA-protected.</div>
+  `;
+}
+
+/* ---------- Eligibility scoring ---------- */
+function evaluateEligibility(){
+  const b = bmi();
+  const a = age();
+  const contraSelected = Object.keys(CONTRA_CONDITIONS).filter(id=>data.conditionsA.includes(id));
+  const comorbidSelected = Object.keys(COMORBIDITIES).filter(id=>data.conditionsA.includes(id));
+  const pregnancyFlagged = data.pregnancyFlags.some(f=>f!=='none');
+
+  const reasons = [];
+  let status = 'eligible';
+
+  if(a!==null && a<18){
+    status='not';
+    reasons.push({ok:false, text:"Must be 18 or older for GLP-1 prescribing."});
+  }
+  if(pregnancyFlagged){
+    status='not';
+    reasons.push({ok:false, text:"Pregnancy, breastfeeding, or recent childbirth is a contraindication for GLP-1 medications."});
+  }
+  if(contraSelected.length){
+    status='not';
+    contraSelected.forEach(id=>reasons.push({ok:false, text:CONTRA_CONDITIONS[id]+" is a contraindication requiring provider review."}));
+  }
+  if(data.suicidal==='yes'){
+    if(status!=='not') status='review';
+    reasons.push({ok:false, text:"Flagged for direct clinical follow-up before any prescribing decision, per safety screening."});
+  }
+  if(data.bpRange==='high2'){
+    if(status==='eligible') status='review';
+    reasons.push({ok:false, text:"Stage 2 blood pressure range noted for provider review."});
+  }
+
+  if(status!=='not'){
+    if(b!==null){
+      if(b>=30){
+        reasons.unshift({ok:true, text:`BMI of ${b.toFixed(1)} meets the ≥30 threshold on its own.`});
+      } else if(b>=27 && comorbidSelected.length){
+        reasons.unshift({ok:true, text:`BMI of ${b.toFixed(1)} plus ${COMORBIDITIES[comorbidSelected[0]].toLowerCase()} meets the ≥27-with-comorbidity threshold.`});
+      } else if(b>=27){
+        if(status==='eligible') status='not';
+        reasons.unshift({ok:false, text:`BMI of ${b.toFixed(1)} is under 30 and no qualifying comorbidity was selected.`});
+      } else if(b>0){
+        if(status==='eligible') status='not';
+        reasons.unshift({ok:false, text:`BMI of ${b.toFixed(1)} is below the typical 27–30 threshold used for GLP-1 prescribing.`});
+      }
+    }
+  }
+
+  if(!reasons.length){
+    reasons.push({ok:true, text:"No contraindications flagged based on your answers."});
+  }
+  return {status, bmi:b, age:a, reasons};
+}
+
+/* ---------- Step 14: Review & contact ---------- */
+function stepReview(){
+  const r = evaluateEligibility();
+  const badgeClass = r.status==='eligible' ? 'badge-eligible' : r.status==='review' ? 'badge-review' : 'badge-not';
+  const badgeText = r.status==='eligible' ? 'Strong candidate' : r.status==='review' ? 'Needs clinical review' : 'Not eligible on current answers';
+  const weeks = weeksToGoal();
+  return `
+    <div class="step-eyebrow">Eligibility</div>
+    <h1>Your medical review.</h1>
+    <div class="helper">This is a preliminary estimate, not a diagnosis. A licensed provider makes the final decision after reviewing your full history.</div>
+
+    <div class="result-hero"><div class="result-badge ${badgeClass}">${badgeText}</div></div>
+
+    <div class="result-stats">
+      <div class="stat"><div class="num">${r.bmi?r.bmi.toFixed(1):'—'}</div><div class="lab">BMI</div></div>
+      <div class="stat"><div class="num">${data.weight||'—'}</div><div class="lab">Current lbs</div></div>
+      <div class="stat"><div class="num">${data.goalWeight||'—'}${weeks?` / ${weeks}w`:''}</div><div class="lab">Goal lbs</div></div>
+    </div>
+
+    <ul class="reasons">${r.reasons.map(x=>`<li><span class="dot ${x.ok?'dot-ok':'dot-flag'}"></span><span>${x.text}</span></li>`).join('')}</ul>
+
+    <div class="row2" style="margin-top:26px;">
+      <div class="field">
+        <label class="field-label">First name</label>
+        <input type="text" value="${data.firstName}" oninput="data.firstName=this.value; syncNext();">
+      </div>
+      <div class="field">
+        <label class="field-label">Last name</label>
+        <input type="text" value="${data.lastName}" oninput="data.lastName=this.value; syncNext();">
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label">What state will your medication be shipped to?</label>
+      <select onchange="data.state=this.value; syncNext();">
+        <option value="">Select…</option>
+        ${US_STATES.map(s=>`<option value="${s}" ${data.state===s?'selected':''}>${s}</option>`).join('')}
+      </select>
+    </div>
+    <div class="why-we-ask">Medication can only be shipped to certain states. Your provider review begins after you submit this form.</div>
+  `;
+}
+
+function stepSubmitted(){
+  return `
+    <div class="submitted">
+      <div class="check">✓</div>
+      <h1>You're all set, ${data.firstName||'there'}.</h1>
+      <div class="helper">Your information has been submitted for provider review. You'll hear back by email within one business day with next steps.</div>
+      <div class="btn-row" style="justify-content:center;">
+        <a href="index.html" class="btn-next" style="text-decoration:none;">Back to SD Clinic</a>
+      </div>
+    </div>
+  `;
+}
+
+let submitted = false;
+
+function syncNext(){
+  const btn = document.getElementById('nextBtn');
+  if(!btn) return;
+  btn.disabled = !isStepComplete();
+}
+function isStepComplete(){
+  switch(step){
+    case 0: return data.heightFt && data.heightIn!==null && data.heightIn!=='' && data.weight && data.goalWeight;
+    case 1: return data.dobYear && data.sex;
+    case 4: return !!data.goal;
+    case 5: return !!data.paceOk;
+    case 14: return data.firstName && data.lastName && data.state;
+    default: return true;
+  }
+}
+
+function rerender(){
+  const card = document.getElementById('card');
+  if(submitted){ card.innerHTML = stepSubmitted(); return; }
+
+  let body = '';
+  if(step===0) body = stepBody();
+  else if(step===1) body = stepAbout();
+  else if(step===2) body = stepPregnancy();
+  else if(step===3) body = stepSymptoms();
+  else if(step===4) body = stepGoal();
+  else if(step===5) body = stepTimeline();
+  else if(step===6) body = stepConditionsA();
+  else if(step===7) body = stepConditionsB();
+  else if(step===8) body = stepSafety();
+  else if(step===9) body = stepMedHistory();
+  else if(step===10) body = stepBackground();
+  else if(step===11) body = stepLifestyle();
+  else if(step===12) body = stepVitals();
+  else if(step===13) body = stepAdditional();
+  else body = stepReview();
+
+  const isLast = step===TOTAL_STEPS-1;
+  const nav = `
+    <div class="btn-row">
+      ${step>0 ? `<button class="btn-back" onclick="goBack()">← Back</button>` : `<span></span>`}
+      <button class="btn-next" id="nextBtn" onclick="${isLast?'submitForm()':'goNext()'}">${isLast?'Submit for review':'Next →'}</button>
+    </div>
+  `;
+  card.innerHTML = body + nav;
+  syncNext();
+  renderProgress();
+  if(step===0) updateDial();
+}
+
+function submitForm(){
+  submitted = true;
+  rerender();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+rerender();
+</script>
+</body>
+</html>
