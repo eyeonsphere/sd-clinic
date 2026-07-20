@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sleep and Circadian Rhythm: The Overlooked Longevity Lever — SD Clinic Blog</title>
+<title>Cart — SD Clinic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -404,7 +404,7 @@
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="consultation.html">Online Consultation</a>
-      <a href="blog.html" class="active">Blog</a>
+      <a href="blog.html">Blog</a>
     </nav>
     <div class="navactions">
       <a href="#" class="icon-link">Log in</a>
@@ -541,40 +541,93 @@
 
 
 <section style="padding-top:56px;">
-  <div class="wrap" style="max-width:760px;">
-    <p class="breadcrumb"><a href="blog.html">Blog</a> / Longevity</p>
-    <p class="eyebrow">Longevity</p>
-    <h1 style="font-size:clamp(1.8rem,3.6vw,2.5rem); margin:12px 0 14px;">Sleep and Circadian Rhythm: The Overlooked Longevity Lever</h1>
-    <div style="display:flex; gap:14px; align-items:center; color:var(--ink-600); font-size:.88rem; margin-bottom:34px;">
-      <span>June 24, 2026</span><span>·</span><span>4 min read</span>
-    </div>
-    <div style="width:100%; aspect-ratio:16/6; border-radius:18px; background:var(--plum-100); display:flex; align-items:center; justify-content:center; margin-bottom:36px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" style="width:64px; height:64px; stroke:var(--plum-700);"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-    </div>
+  <div class="wrap" style="max-width:900px;">
+    <p class="eyebrow">Your order</p>
+    <h1 style="font-size:clamp(1.9rem,3.6vw,2.4rem); margin:12px 0 0;">Cart</h1>
   </div>
 </section>
 
 <section style="background:#fff; padding-top:0;">
-  <div class="wrap" style="max-width:760px;">
-<p style="color:var(--ink-600); line-height:1.8; font-size:1.02rem; margin-bottom:20px;">It's easy to focus on medications and supplements when thinking about longevity, but sleep quality may be the single most underrated lever available. Poor sleep doesn't just leave you tired — it measurably impairs glucose metabolism, raises inflammatory markers, and blunts the effectiveness of nearly every other health intervention, from exercise to medication response.</p>
-<p style="color:var(--ink-600); line-height:1.8; font-size:1.02rem; margin-bottom:20px;">Circadian rhythm — your internal 24-hour clock — governs far more than when you feel sleepy. It influences hormone release timing, body temperature regulation, and even how your body processes food differently depending on the time of day.</p>
-<p style="color:var(--ink-600); line-height:1.8; font-size:1.02rem; margin-bottom:20px;">Modern life disrupts this rhythm constantly: irregular sleep schedules, late-night screen exposure, and inconsistent meal timing all send conflicting signals to the body's internal clock. Over time, this misalignment is associated with worse metabolic health outcomes, independent of total sleep duration.</p>
-<p style="color:var(--ink-600); line-height:1.8; font-size:1.02rem; margin-bottom:20px;">Simple, evidence-backed steps make an outsized difference: consistent wake times (even on weekends), morning light exposure, and winding down screens an hour before bed. For patients on weight-loss or longevity protocols, these habits often determine how well the rest of the plan actually works.</p>
-    <div style="background:var(--plum-050); border:1px solid var(--sand-200); border-radius:12px; padding:18px 20px; margin-top:32px; font-size:.85rem; color:var(--ink-600); line-height:1.6;">
-      This article is for general education and is not medical advice. Talk to a licensed provider about whether a treatment is right for you.
+  <div class="wrap" style="max-width:900px;">
+    <div id="cartEmpty" style="display:none; text-align:center; padding:40px 0;">
+      <p style="color:var(--ink-600); font-size:1.05rem; margin-bottom:20px;">Your cart is empty.</p>
+      <a href="index.html" class="btn btn-coral">Browse treatments</a>
+    </div>
+    <div id="cartItems"></div>
+    <div id="cartSummary" style="display:none; border-top:1px solid var(--sand-200); margin-top:20px; padding-top:24px;">
+      <div style="display:flex; justify-content:space-between; font-size:.95rem; color:var(--ink-600); margin-bottom:8px;">
+        <span>Subtotal</span><span id="cartSubtotal">$0</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:.95rem; color:var(--ink-600); margin-bottom:16px;">
+        <span>Shipping</span><span>Free</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:1.2rem; font-weight:700; color:var(--plum-700); border-top:1px solid var(--sand-200); padding-top:16px; margin-bottom:26px;">
+        <span>Total</span><span id="cartTotal">$0</span>
+      </div>
+      <a href="checkout.html" class="btn btn-coral" style="width:100%; justify-content:center;">Proceed to checkout</a>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="cta-banner">
-      <h2>Building a complete wellness plan?</h2>
-      <p>Ask your provider how sleep fits into your treatment plan.</p>
-      <a href="consultation.html" class="btn btn-outline">Start a consultation</a>
-    </div>
-  </div>
-</section>
+<style>
+  .cart-row{ display:flex; align-items:center; gap:16px; padding:18px 0; border-bottom:1px solid var(--sand-200); }
+  .cart-row .ci-icon{ width:48px; height:48px; border-radius:12px; background:var(--plum-100); display:flex; align-items:center; justify-content:center; flex:none; }
+  .cart-row .ci-info{ flex:1; }
+  .cart-row .ci-name{ font-weight:600; color:var(--plum-700); font-size:.98rem; }
+  .cart-row .ci-cat{ font-size:.78rem; color:var(--ink-600); }
+  .cart-row .ci-qty{ display:flex; align-items:center; gap:8px; }
+  .cart-row .ci-qty button{ width:26px; height:26px; border-radius:50%; border:1px solid var(--sand-200); background:#fff; cursor:pointer; font-family:'Poppins',sans-serif; }
+  .cart-row .ci-price{ font-weight:600; color:var(--ink-900); min-width:70px; text-align:right; }
+  .cart-row .ci-remove{ color:var(--ink-600); font-size:.8rem; text-decoration:underline; cursor:pointer; background:none; border:none; font-family:'Poppins',sans-serif; }
+</style>
+
+<script>
+  function sdRenderCart(){
+    const cart = sdCartGet();
+    const ids = Object.keys(cart);
+    const itemsEl = document.getElementById('cartItems');
+    const emptyEl = document.getElementById('cartEmpty');
+    const summaryEl = document.getElementById('cartSummary');
+
+    if(ids.length === 0){
+      itemsEl.innerHTML = '';
+      emptyEl.style.display = 'block';
+      summaryEl.style.display = 'none';
+      return;
+    }
+    emptyEl.style.display = 'none';
+    summaryEl.style.display = 'block';
+
+    itemsEl.innerHTML = ids.map(id => {
+      const p = SD_PRODUCTS[id];
+      if(!p) return '';
+      const qty = cart[id];
+      return `
+        <div class="cart-row">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" style="width:22px;height:22px;stroke:var(--plum-700);"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg>
+          </div>
+          <div class="ci-info">
+            <div class="ci-name">${p.name}</div>
+            <div class="ci-cat">${p.category}</div>
+            <button class="ci-remove" onclick="sdCartRemove('${id}'); sdRenderCart();">Remove</button>
+          </div>
+          <div class="ci-qty">
+            <button onclick="sdCartSetQty('${id}', ${qty}-1); sdRenderCart();">−</button>
+            <span>${qty}</span>
+            <button onclick="sdCartSetQty('${id}', ${qty}+1); sdRenderCart();">+</button>
+          </div>
+          <div class="ci-price">$${(p.price*qty).toLocaleString()}</div>
+        </div>
+      `;
+    }).join('');
+
+    const subtotal = sdCartSubtotal();
+    document.getElementById('cartSubtotal').textContent = '$' + subtotal.toLocaleString();
+    document.getElementById('cartTotal').textContent = '$' + subtotal.toLocaleString();
+  }
+  document.addEventListener('DOMContentLoaded', sdRenderCart);
+</script>
 
 
 <footer>
@@ -613,6 +666,8 @@
       <div>
         <h5>Information</h5>
         <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
           <li><a href="about.html">About us</a></li>
           <li><a href="contact.html">Contact us</a></li>
           <li><a href="consultation.html">Online Consultation</a></li>

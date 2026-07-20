@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sleep and Circadian Rhythm: The Overlooked Longevity Lever — SD Clinic Blog</title>
+<title>Checkout — SD Clinic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -404,7 +404,7 @@
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="consultation.html">Online Consultation</a>
-      <a href="blog.html" class="active">Blog</a>
+      <a href="blog.html">Blog</a>
     </nav>
     <div class="navactions">
       <a href="#" class="icon-link">Log in</a>
@@ -541,40 +541,239 @@
 
 
 <section style="padding-top:56px;">
-  <div class="wrap" style="max-width:760px;">
-    <p class="breadcrumb"><a href="blog.html">Blog</a> / Longevity</p>
-    <p class="eyebrow">Longevity</p>
-    <h1 style="font-size:clamp(1.8rem,3.6vw,2.5rem); margin:12px 0 14px;">Sleep and Circadian Rhythm: The Overlooked Longevity Lever</h1>
-    <div style="display:flex; gap:14px; align-items:center; color:var(--ink-600); font-size:.88rem; margin-bottom:34px;">
-      <span>June 24, 2026</span><span>·</span><span>4 min read</span>
-    </div>
-    <div style="width:100%; aspect-ratio:16/6; border-radius:18px; background:var(--plum-100); display:flex; align-items:center; justify-content:center; margin-bottom:36px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" style="width:64px; height:64px; stroke:var(--plum-700);"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-    </div>
+  <div class="wrap" style="max-width:1000px;">
+    <p class="eyebrow">Secure checkout</p>
+    <h1 style="font-size:clamp(1.9rem,3.6vw,2.4rem); margin:12px 0 0;">Checkout</h1>
+    <p style="color:var(--ink-600); margin-top:8px; font-size:.92rem;">🔒 Payments are processed securely by Authorize.net. Your card details never touch our servers.</p>
   </div>
 </section>
 
 <section style="background:#fff; padding-top:0;">
-  <div class="wrap" style="max-width:760px;">
-<p style="color:var(--ink-600); line-height:1.8; font-size:1.02rem; margin-bottom:20px;">It's easy to focus on medications and supplements when thinking about longevity, but sleep quality may be the single most underrated lever available. Poor sleep doesn't just leave you tired — it measurably impairs glucose metabolism, raises inflammatory markers, and blunts the effectiveness of nearly every other health intervention, from exercise to medication response.</p>
-<p style="color:var(--ink-600); line-height:1.8; font-size:1.02rem; margin-bottom:20px;">Circadian rhythm — your internal 24-hour clock — governs far more than when you feel sleepy. It influences hormone release timing, body temperature regulation, and even how your body processes food differently depending on the time of day.</p>
-<p style="color:var(--ink-600); line-height:1.8; font-size:1.02rem; margin-bottom:20px;">Modern life disrupts this rhythm constantly: irregular sleep schedules, late-night screen exposure, and inconsistent meal timing all send conflicting signals to the body's internal clock. Over time, this misalignment is associated with worse metabolic health outcomes, independent of total sleep duration.</p>
-<p style="color:var(--ink-600); line-height:1.8; font-size:1.02rem; margin-bottom:20px;">Simple, evidence-backed steps make an outsized difference: consistent wake times (even on weekends), morning light exposure, and winding down screens an hour before bed. For patients on weight-loss or longevity protocols, these habits often determine how well the rest of the plan actually works.</p>
-    <div style="background:var(--plum-050); border:1px solid var(--sand-200); border-radius:12px; padding:18px 20px; margin-top:32px; font-size:.85rem; color:var(--ink-600); line-height:1.6;">
-      This article is for general education and is not medical advice. Talk to a licensed provider about whether a treatment is right for you.
+  <div class="wrap" style="max-width:1000px;">
+    <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:start;" id="checkoutGrid">
+
+      <div>
+        <div id="checkoutEmpty" style="display:none; text-align:center; padding:40px 0;">
+          <p style="color:var(--ink-600); margin-bottom:20px;">Your cart is empty — nothing to check out.</p>
+          <a href="index.html" class="btn btn-coral">Browse treatments</a>
+        </div>
+
+        <form id="checkoutForm" style="display:none;">
+          <h3 style="font-size:1.1rem; color:var(--plum-700); margin-bottom:16px;">Contact &amp; shipping</h3>
+          <div class="row2" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+            <div class="field" style="margin-bottom:16px;">
+              <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">First name*</label>
+              <input required id="firstName" type="text" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+            </div>
+            <div class="field" style="margin-bottom:16px;">
+              <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Last name*</label>
+              <input required id="lastName" type="text" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+            </div>
+          </div>
+          <div class="field" style="margin-bottom:16px;">
+            <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Email*</label>
+            <input required id="email" type="email" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+          </div>
+          <div class="field" style="margin-bottom:16px;">
+            <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Phone*</label>
+            <input required id="phone" type="tel" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+          </div>
+          <div class="field" style="margin-bottom:16px;">
+            <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Shipping address*</label>
+            <input required id="address" type="text" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+          </div>
+          <div class="row3" style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:14px;">
+            <div class="field" style="margin-bottom:24px;">
+              <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">City*</label>
+              <input required id="city" type="text" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+            </div>
+            <div class="field" style="margin-bottom:24px;">
+              <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">State*</label>
+              <input required id="state" type="text" maxlength="2" placeholder="CA" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+            </div>
+            <div class="field" style="margin-bottom:24px;">
+              <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">ZIP*</label>
+              <input required id="zip" type="text" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+            </div>
+          </div>
+
+          <h3 style="font-size:1.1rem; color:var(--plum-700); margin-bottom:16px;">Payment</h3>
+          <div style="background:var(--plum-050); border:1px solid var(--sand-200); border-radius:10px; padding:14px 16px; margin-bottom:18px; font-size:.82rem; color:var(--ink-600);">
+            <strong>Sandbox test mode:</strong> use card number 4111111111111111, any future expiry, any 3-digit CVV, any ZIP.
+          </div>
+          <div class="field" style="margin-bottom:16px;">
+            <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Card number*</label>
+            <input required id="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+          </div>
+          <div class="row3" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+            <div class="field" style="margin-bottom:16px;">
+              <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Exp. month*</label>
+              <input required id="expMonth" type="text" inputmode="numeric" placeholder="MM" maxlength="2" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+            </div>
+            <div class="field" style="margin-bottom:16px;">
+              <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Exp. year*</label>
+              <input required id="expYear" type="text" inputmode="numeric" placeholder="YYYY" maxlength="4" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+            </div>
+            <div class="field" style="margin-bottom:16px;">
+              <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">CVV*</label>
+              <input required id="cardCode" type="text" inputmode="numeric" maxlength="4" placeholder="123" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+            </div>
+          </div>
+
+          <div id="checkoutError" style="display:none; background:#F5E5DF; color:#8C3A2B; border-radius:10px; padding:14px 16px; margin-bottom:18px; font-size:.88rem;"></div>
+
+          <button type="submit" id="payBtn" class="btn btn-coral" style="width:100%; justify-content:center;">
+            <span id="payBtnText">Pay <span id="payBtnAmount">$0</span></span>
+          </button>
+          <p style="font-size:.78rem; color:var(--ink-600); margin-top:14px; text-align:center;">By completing this purchase you agree to our <a href="privacy-policy.html" style="text-decoration:underline;">Terms &amp; Privacy Policy</a>.</p>
+        </form>
+
+        <div id="checkoutSuccess" style="display:none; text-align:center; padding:40px 0;">
+          <div style="width:64px; height:64px; border-radius:50%; background:var(--plum-100); color:var(--plum-700); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 20px;">✓</div>
+          <h2 style="margin-bottom:10px;">Order confirmed</h2>
+          <p style="color:var(--ink-600); margin-bottom:8px;">Transaction ID: <strong id="successTxnId"></strong></p>
+          <p style="color:var(--ink-600); margin-bottom:26px;">A confirmation has been recorded. Our team will follow up on next steps.</p>
+          <a href="index.html" class="btn btn-coral">Back to SD Clinic</a>
+        </div>
+      </div>
+
+      <div style="background:var(--plum-050); border:1px solid var(--sand-200); border-radius:16px; padding:26px;">
+        <h3 style="font-size:1.05rem; color:var(--plum-700); margin-bottom:18px;">Order summary</h3>
+        <div id="summaryItems"></div>
+        <div style="border-top:1px solid var(--sand-200); margin-top:16px; padding-top:16px;">
+          <div style="display:flex; justify-content:space-between; font-size:.9rem; color:var(--ink-600); margin-bottom:8px;">
+            <span>Subtotal</span><span id="summarySubtotal">$0</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:.9rem; color:var(--ink-600); margin-bottom:16px;">
+            <span>Shipping</span><span>Free</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:1.15rem; font-weight:700; color:var(--plum-700); border-top:1px solid var(--sand-200); padding-top:16px;">
+            <span>Total</span><span id="summaryTotal">$0</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="cta-banner">
-      <h2>Building a complete wellness plan?</h2>
-      <p>Ask your provider how sleep fits into your treatment plan.</p>
-      <a href="consultation.html" class="btn btn-outline">Start a consultation</a>
-    </div>
-  </div>
-</section>
+<script type="text/javascript" src="https://jstest.authorize.net/v1/Accept.js"></script>
+<script>
+  const AUTHNET_API_LOGIN_ID = "362EMaPt7F";
+  const AUTHNET_PUBLIC_CLIENT_KEY = "6r4fSasnQ66ZegUENme35mEsVv263wBJt8YGGy77zx7HFX9B79kmkezEbw5UgzJH";
+
+  function sdRenderSummary(){
+    const cart = sdCartGet();
+    const ids = Object.keys(cart);
+    if(ids.length === 0){
+      document.getElementById('checkoutEmpty').style.display = 'block';
+      document.getElementById('checkoutForm').style.display = 'none';
+      return;
+    }
+    document.getElementById('checkoutForm').style.display = 'block';
+    const itemsEl = document.getElementById('summaryItems');
+    itemsEl.innerHTML = ids.map(id => {
+      const p = SD_PRODUCTS[id];
+      if(!p) return '';
+      const qty = cart[id];
+      return `<div style="display:flex; justify-content:space-between; font-size:.88rem; color:var(--ink-900); margin-bottom:10px;">
+        <span>${p.name} ${qty>1 ? '× '+qty : ''}</span><span>$${(p.price*qty).toLocaleString()}</span>
+      </div>`;
+    }).join('');
+    const subtotal = sdCartSubtotal();
+    document.getElementById('summarySubtotal').textContent = '$' + subtotal.toLocaleString();
+    document.getElementById('summaryTotal').textContent = '$' + subtotal.toLocaleString();
+    document.getElementById('payBtnAmount').textContent = '$' + subtotal.toLocaleString();
+  }
+  document.addEventListener('DOMContentLoaded', sdRenderSummary);
+
+  function showCheckoutError(msg){
+    const el = document.getElementById('checkoutError');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+  function hideCheckoutError(){
+    document.getElementById('checkoutError').style.display = 'none';
+  }
+
+  document.getElementById('checkoutForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    hideCheckoutError();
+
+    const payBtn = document.getElementById('payBtn');
+    payBtn.disabled = true;
+    document.getElementById('payBtnText').textContent = 'Processing…';
+
+    const authData = { clientKey: AUTHNET_PUBLIC_CLIENT_KEY, apiLoginID: AUTHNET_API_LOGIN_ID };
+    const cardData = {
+      cardNumber: document.getElementById('cardNumber').value.replace(/\s+/g,''),
+      month: document.getElementById('expMonth').value.padStart(2,'0'),
+      year: document.getElementById('expYear').value,
+      cardCode: document.getElementById('cardCode').value
+    };
+    const secureData = { authData: authData, cardData: cardData };
+
+    Accept.dispatchData(secureData, function(response){
+      if(response.messages.resultCode === 'Error'){
+        const msg = response.messages.message.map(m => m.text).join(' ');
+        showCheckoutError(msg);
+        payBtn.disabled = false;
+        document.getElementById('payBtnText').textContent = 'Pay';
+        return;
+      }
+
+      const cart = sdCartGet();
+      const items = Object.keys(cart).map(id => ({
+        id, name: SD_PRODUCTS[id] ? SD_PRODUCTS[id].name : id,
+        price: SD_PRODUCTS[id] ? SD_PRODUCTS[id].price : 0,
+        qty: cart[id]
+      }));
+      const amount = sdCartSubtotal();
+
+      const payload = {
+        dataDescriptor: response.opaqueData.dataDescriptor,
+        dataValue: response.opaqueData.dataValue,
+        amount: amount,
+        items: items,
+        customer: {
+          firstName: document.getElementById('firstName').value,
+          lastName: document.getElementById('lastName').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          address: document.getElementById('address').value,
+          city: document.getElementById('city').value,
+          state: document.getElementById('state').value,
+          zip: document.getElementById('zip').value
+        }
+      };
+
+      fetch('/.netlify/functions/charge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(r => r.json())
+      .then(result => {
+        if(result.success){
+          localStorage.removeItem('sd_cart');
+          sdCartUpdateBadge();
+          document.getElementById('checkoutForm').style.display = 'none';
+          document.getElementById('checkoutSuccess').style.display = 'block';
+          document.getElementById('successTxnId').textContent = result.transactionId || '—';
+        } else {
+          showCheckoutError(result.error || 'The transaction could not be completed. Please check your card details and try again.');
+          payBtn.disabled = false;
+          document.getElementById('payBtnText').textContent = 'Pay';
+        }
+      })
+      .catch(() => {
+        showCheckoutError('Something went wrong reaching our payment server. Please try again.');
+        payBtn.disabled = false;
+        document.getElementById('payBtnText').textContent = 'Pay';
+      });
+    });
+  });
+</script>
 
 
 <footer>
@@ -613,6 +812,8 @@
       <div>
         <h5>Information</h5>
         <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
           <li><a href="about.html">About us</a></li>
           <li><a href="contact.html">Contact us</a></li>
           <li><a href="consultation.html">Online Consultation</a></li>
