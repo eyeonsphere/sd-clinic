@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SD Clinic — Perform Better. Recover Faster. Age Slower.</title>
+<title>Contact Us — SD Clinic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
 <style>
   :root{
     --plum-900:#2E1330;
@@ -306,6 +307,7 @@
     .foot-grid{grid-template-columns:1fr;}
   }
 </style>
+</style>
 </head>
 <body>
 
@@ -326,12 +328,12 @@
       <a href="weight-loss.html">Weight Loss</a>
       <a href="energy.html">Energy &amp; Vitality</a>
       <a href="recovery.html">Recovery &amp; Performance</a>
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="consultation.html">Online Consultation</a>
     </nav>
     <div class="navactions">
       <a href="#" class="icon-link">Log in</a>
-      <a href="#pricing" class="btn btn-coral">Get started</a>
+      <a href="index.html#pricing" class="btn btn-coral">Get started</a>
     </div>
     <button class="navtoggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">☰</button>
   </div>
@@ -343,10 +345,9 @@
     <a href="about.html" onclick="closeMobileNav()">About</a>
     <a href="consultation.html" onclick="closeMobileNav()">Online Consultation</a>
     <a href="#" onclick="closeMobileNav()">Log in</a>
-    <a href="#pricing" class="btn btn-coral" onclick="closeMobileNav()">Get started</a>
+    <a href="index.html#pricing" class="btn btn-coral" onclick="closeMobileNav()">Get started</a>
   </div>
 </header>
-
 <script>
   function toggleMobileNav(btn){
     const panel = document.getElementById('mobilenav');
@@ -362,219 +363,84 @@
   }
 </script>
 
-<section id="top" class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Compounded GLP-1s &amp; Longevity Products</p>
-      <h1>Perform Better.<br>Recover Faster.<br>Age Slower.</h1>
-      <p class="lede">For those thinking about the next 20 years — not just the next 20 pounds.</p>
-      <div class="hero-ctas">
-        <a href="#pricing" class="btn btn-coral">Get Started</a>
-      </div>
-    </div>
-    <div class="hero-art">
-      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="86" stroke="#4A2545" stroke-width="1.4" stroke-dasharray="4 6" opacity=".5"/>
-        <circle cx="100" cy="100" r="60" stroke="#4A2545" stroke-width="1" opacity=".3"/>
-        <path d="M100 40 A60 60 0 0 1 154 118" stroke="#4A2545" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="154" cy="118" r="6" fill="#4A2545"/>
-        <path d="M60 130 L85 100 L105 118 L145 72" stroke="#4A2545" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
-      </svg>
-    </div>
-  </div>
 
-  <div class="timeline">
-    <div class="wrap">
-      <span class="tl-label">TODAY</span>
-      <div class="tl-track">
-        <div class="tl-fill"></div>
-        <div class="tl-dot" style="left:14%;"></div>
+
+<section style="padding-top:56px;">
+  <div class="wrap" style="max-width:900px;">
+    <p class="eyebrow">Get in touch</p>
+    <h1 style="font-size:clamp(1.9rem,3.6vw,2.6rem); margin:12px 0 18px;">Contact us.</h1>
+    <p style="color:var(--ink-600); font-size:1.05rem; max-width:65ch;">Ready to get started? Reach out for a confidential consultation with our care team.</p>
+  </div>
+</section>
+
+<section style="background:#fff; padding-top:0;">
+  <div class="wrap" style="max-width:640px;">
+    <div class="card" style="padding:34px;">
+      <div style="background:var(--plum-100); border-radius:12px; padding:16px 18px; margin-bottom:26px; font-size:.9rem; color:var(--plum-700); display:flex; gap:10px;">
+        <span>⚠️</span>
+        <span><strong>Please don't include medical details in this form.</strong> Don't send protected health information, medical records, diagnoses, or treatment details here — this form is for general inquiries and appointment requests only. For medical questions, please call our office directly.</span>
       </div>
-      <span class="tl-label">+20 YEARS</span>
+      <form onsubmit="event.preventDefault(); alert('This is a demo form — connect it to your booking system or CRM to go live.');">
+        <div class="row2" style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+          <div class="field" style="margin-bottom:18px;">
+            <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">First name*</label>
+            <input required type="text" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+          </div>
+          <div class="field" style="margin-bottom:18px;">
+            <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Last name*</label>
+            <input required type="text" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:18px;">
+          <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Email*</label>
+          <input required type="email" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+        </div>
+        <div class="field" style="margin-bottom:18px;">
+          <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Phone number*</label>
+          <input required type="tel" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif;">
+        </div>
+        <div class="field" style="margin-bottom:18px;">
+          <label class="field-label" style="display:block; font-size:.85rem; font-weight:600; margin-bottom:6px;">Message</label>
+          <textarea rows="4" style="width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--sand-200); font-family:'Poppins',sans-serif; resize:vertical;"></textarea>
+        </div>
+        <label style="display:flex; gap:10px; font-size:.82rem; color:var(--ink-600); margin-bottom:22px; align-items:flex-start;">
+          <input type="checkbox" style="margin-top:3px;">
+          <span>I agree to receive calls, texts, and emails from SD Clinic at the number and email provided regarding appointments and related services. Message and data rates may apply. Reply STOP to opt out at any time.</span>
+        </label>
+        <button type="submit" class="btn btn-coral" style="width:100%; justify-content:center;">Send message</button>
+        <p style="font-size:.78rem; color:var(--ink-600); margin-top:14px; text-align:center;">By submitting this form you agree to our <a href="privacy-policy.html" style="text-decoration:underline;">Privacy Policy</a>. We never share your information.</p>
+      </form>
     </div>
   </div>
 </section>
 
-<section id="pricing" style="background:#fff;">
+<section>
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Transparent, competitive pricing</p>
-      <h2>One price, everything included</h2>
-      <p>Consultation, medication, supplies, and shipping — no hidden fees, no surprise invoices.</p>
+      <p class="eyebrow">Call us directly</p>
+      <h2>Speak with our team</h2>
     </div>
     <div class="card-grid">
-      <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M5 9l7-5 7 5M5 15l7 5 7-5"/></svg></div>
-        <h3>Longevity</h3>
-        <p class="blurb">Cellular and hormonal support built for the long game, not a quick fix.</p>
-        <a href="longevity.html" class="card-cta">Explore program →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg></div>
-        <h3>Weight Loss</h3>
-        <p class="blurb">GLP-1 therapies that curb appetite and support steady, sustainable loss.</p>
-        <a href="weight-loss.html" class="card-cta">Explore program →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
-        <h3>Energy &amp; Vitality</h3>
-        <p class="blurb">Steadier energy and sharper focus, without the crash of caffeine or sugar.</p>
-        <a href="energy.html" class="card-cta">Explore program →</a>
-      </div>
-      <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 12h4l2-7 4 14 2-7h4"/></svg></div>
-        <h3>Recovery &amp; Performance</h3>
-        <p class="blurb">Support for muscle repair, sleep quality, and bouncing back between sessions.</p>
-        <a href="recovery.html" class="card-cta">Explore program →</a>
-      </div>
+      <div class="card"><h3>Weight loss clinic</h3><p class="blurb">[Weight Loss line]</p></div>
+      <div class="card"><h3>ED treatment clinic</h3><p class="blurb">[ED Treatment line]</p></div>
     </div>
   </div>
 </section>
 
-<section id="how-it-works" style="background:#fff;">
+<section style="background:#fff;">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">The process</p>
-      <h2>How it works</h2>
-      <p>From sign-up to your doorstep, in four clinician-reviewed steps.</p>
+      <p class="eyebrow">Visit us</p>
+      <h2>Our clinic</h2>
     </div>
-    <div class="steps">
-      <div class="step">
-        <div class="num">01</div>
-        <h4>Choose your program</h4>
-        <p>Pick the path that fits your goals — GLP-1s, NAD+, Sermorelin, and more.</p>
-      </div>
-      <div class="step">
-        <div class="num">02</div>
-        <h4>Complete intake &amp; consultation</h4>
-        <p>After checkout, finish a secure intake and connect with a licensed provider to review your health profile.</p>
-      </div>
-      <div class="step">
-        <div class="num">03</div>
-        <h4>Get your personalized plan</h4>
-        <p>If approved, your provider determines the most appropriate treatment for your goals and health profile.</p>
-      </div>
-      <div class="step">
-        <div class="num">04</div>
-        <h4>Fast, discreet delivery</h4>
-        <p>Once approved, your treatment ships straight to your door — secure, tracked, and ready to use.</p>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top:44px;">
-      <a href="#pricing" class="btn btn-coral">Get Started</a>
+    <div class="card-grid">
+      <div class="card"><h3>Address</h3><p class="blurb">[Clinic Street Address, City, State ZIP]</p></div>
+      <div class="card"><h3>Hours</h3><p class="blurb">Monday–Friday: 9 AM–5 PM<br>Saturday–Sunday: Closed</p></div>
+      <div class="card"><h3>Email</h3><p class="blurb">[info@yourclinic.com]</p></div>
     </div>
   </div>
 </section>
 
-<section id="results">
-  <div class="wrap">
-    <div class="testi-wrap">
-      <div class="section-head">
-        <p class="eyebrow">Real people. Real change.</p>
-        <h2>Member stories</h2>
-        <p>From weight loss to restored energy — real people sharing their experience with clinician-guided care.</p>
-      </div>
-      <div class="testi-grid">
-
-        <div class="testi">
-          <div class="stars">★★★★★</div>
-          <h4>Lost 22 lbs in 3 months</h4>
-          <p>After years of trying different approaches with no luck, an affordable path outside of insurance finally made the medication accessible — and the results followed.</p>
-          <div class="who"><span class="avatar">CW</span> Carly W. — GLP-1 Weight Loss</div>
-        </div>
-
-        <div class="testi">
-          <div class="stars">★★★★★</div>
-          <h4>Energy completely transformed</h4>
-          <p>Persistent exhaustion in his 40s made it hard to stay productive. NAD+ therapy gave him the sustained daily energy he'd been missing.</p>
-          <div class="who"><span class="avatar">PC</span> Paul C. — NAD+ Longevity</div>
-        </div>
-
-        <div class="testi">
-          <div class="stars">★★★★★</div>
-          <h4>Approved same day</h4>
-          <p>Years of consistent workouts weren't enough to avoid extra rest days as he got older. Sermorelin made a real difference in recovery and sustaining muscle growth.</p>
-          <div class="who"><span class="avatar">JS</span> Justin S. — Sermorelin Longevity</div>
-        </div>
-
-        <div class="testi">
-          <div class="stars">★★★★★</div>
-          <h4>Down 18 lbs in 6 weeks</h4>
-          <p>Years of losing and regaining the same 15 pounds finally made sense once a provider explained why it kept happening. Tirzepatide made the process feel sustainable for the first time.</p>
-          <div class="who"><span class="avatar">MR</span> Maria R. — GLP-1 Weight Loss</div>
-        </div>
-
-        <div class="testi">
-          <div class="stars">★★★★★</div>
-          <h4>Brain fog gone</h4>
-          <p>A busy executive had quietly started avoiding meetings she didn't feel sharp enough for. Six weeks into NAD+ therapy, she felt present and clear-headed again.</p>
-          <div class="who"><span class="avatar">AK</span> Ashley K. — NAD+ Longevity</div>
-        </div>
-
-      </div>
-      <div style="text-align:center; margin-top:36px;">
-        <a href="#pricing" class="btn btn-coral">Start my journey</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="faq" style="background:#fff;">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Questions</p>
-      <h2>Frequently asked questions</h2>
-    </div>
-    <div class="faq">
-
-      <details class="faq-item" open>
-        <summary>Who is SD Clinic?</summary>
-        <div class="faq-body">SD Clinic connects members directly with board-certified physicians who prescribe clinician-grade GLP-1, NAD+, Sermorelin, and longevity therapies online — no waiting rooms, no insurance required. A provider reviews every profile before anything ships, and if a program isn't the right fit, you get a full refund.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>How does it work?</summary>
-        <div class="faq-body">Choose a program and complete checkout, finish a short online intake covering your health history and goals, then a licensed provider reviews your information and builds a plan. Once approved, your treatment ships directly from a licensed pharmacy.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What's included in the price?</summary>
-        <div class="faq-body">Every program bundles the secure intake, provider review, medication (if approved), and discreet delivery — pricing stays the same regardless of dosage, with monthly or one-time options available.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What happens if I'm not approved?</summary>
-        <div class="faq-body">You're notified and refunded in full, and any subscription is canceled automatically — there are no ongoing charges and no risk in getting started.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>How long does it take to receive my medication?</summary>
-        <div class="faq-body">Once your intake is approved, orders are processed and shipped within 3–5 business days, with tracking sent as soon as the package is on its way.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What states does SD Clinic currently serve?</summary>
-        <div class="faq-body">Coverage is expanding regularly — reach out through the contact section below and the team can confirm availability in your state.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Does SD Clinic require insurance?</summary>
-        <div class="faq-body">No — SD Clinic is designed to work entirely without insurance. Pricing is transparent and paid out of pocket, with no dosage-based markups.</div>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="cta-banner">
-      <h2>Ready to start the next twenty years?</h2>
-      <p>Take the quiz, get matched with a licensed provider, and find out what's right for you.</p>
-      <a href="#pricing" class="btn btn-outline">Get started</a>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="wrap">
@@ -590,17 +456,18 @@
       <div>
         <h5>Popular</h5>
         <ul>
-          <li><a href="longevity.html">NAD+</a></li>
+          <li><a href="nad-anti-aging.html">NAD+</a></li>
           <li><a href="recovery.html">Sermorelin</a></li>
-          <li><a href="weight-loss.html">GLP-1s</a></li>
+          <li><a href="weight-loss-medications.html">GLP-1s</a></li>
         </ul>
       </div>
       <div>
-        <h5>Blog</h5>
+        <h5>Treatments</h5>
         <ul>
-          <li><a href="#">View all</a></li>
-          <li><a href="#">What is NAD+?</a></li>
-          <li><a href="#">What is Sermorelin?</a></li>
+          <li><a href="weight-management.html">Weight Management</a></li>
+          <li><a href="weight-loss-medications.html">Weight-Loss Medications</a></li>
+          <li><a href="nad-anti-aging.html">NAD+ &amp; Anti-Aging</a></li>
+          <li><a href="ed-treatment.html">ED Treatment</a></li>
         </ul>
       </div>
       <div>
