@@ -299,7 +299,7 @@
   .nav-trigger .chev{ width:10px; height:10px; transition:transform .15s; }
   .nav-dropdown:hover .chev, .nav-dropdown.open .chev{ transform:rotate(180deg); }
   .mega-panel{
-    position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px);
+    position:absolute; top:100%; left:0; transform:translateY(8px);
     background:#fff; border:1px solid var(--sand-200); border-radius:16px;
     box-shadow:0 20px 40px -16px rgba(74,37,69,.28);
     padding:14px; display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:6px; width:700px;
@@ -308,7 +308,7 @@
     z-index:60;
   }
   .nav-dropdown:hover .mega-panel, .nav-dropdown.open .mega-panel{
-    opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);
+    opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0);
   }
   .mega-item{ display:flex; gap:12px; padding:11px; border-radius:10px; align-items:flex-start; }
   .mega-item:hover{ background:var(--plum-050); }
