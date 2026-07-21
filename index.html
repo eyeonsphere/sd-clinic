@@ -395,6 +395,39 @@
   .slider-dot.active{ background:#fff; transform:scale(1.3); }
   .hero-slider .timeline{ position:absolute; bottom:0; left:0; right:0; z-index:3; margin-top:0; border-top:none; background:rgba(46,19,48,.55); backdrop-filter:blur(2px); }
 
+  /* ---------- Homepage hero header overlay ---------- */
+  .header-spacer{ position:relative; height:0; z-index:60; }
+  .header-overlay{
+    position:absolute; top:0; left:0; right:0;
+    background:transparent; border-bottom:1px solid transparent;
+    transition:background .25s ease, border-color .25s ease;
+  }
+  .header-overlay .logo{ color:#fff; }
+  .header-overlay .logo .dot{ background:#fff; }
+  .header-overlay nav.mainnav a{ color:#fff; }
+  .header-overlay nav.mainnav a:hover, .header-overlay nav.mainnav a.active{ color:#fff; border-color:#fff; }
+  .header-overlay .navactions a.icon-link{ color:#fff; }
+  .header-overlay .cart-icon-link svg{ stroke:#fff; }
+  .header-overlay .navtoggle{ color:#fff; }
+  .header-overlay .nav-trigger{ color:#fff; }
+
+  .header-overlay.is-scrolled{ background:var(--cream); border-bottom-color:var(--sand-200); }
+  .header-overlay.is-scrolled .logo{ color:var(--ink-900); }
+  .header-overlay.is-scrolled .logo .dot{ background:var(--plum-700); }
+  .header-overlay.is-scrolled nav.mainnav a{ color:var(--ink-900); }
+  .header-overlay.is-scrolled nav.mainnav a:hover, .header-overlay.is-scrolled nav.mainnav a.active{ color:var(--plum-700); border-color:var(--plum-700); }
+  .header-overlay.is-scrolled .navactions a.icon-link{ color:var(--ink-900); }
+  .header-overlay.is-scrolled .cart-icon-link svg{ stroke:var(--ink-900); }
+  .header-overlay.is-scrolled .navtoggle{ color:var(--plum-700); }
+  .header-overlay.is-scrolled .nav-trigger{ color:var(--ink-900); }
+
+  @media (max-width: 980px){
+    .header-overlay{ background:var(--cream); border-bottom-color:var(--sand-200); }
+    .header-overlay .logo{ color:var(--ink-900); }
+    .header-overlay .logo .dot{ background:var(--plum-700); }
+    .header-overlay .navtoggle{ color:var(--plum-700); }
+  }
+
   @media (max-width: 980px){
     .hero-slider{ height:600px; }
     .hero-slider-overlay{ background:linear-gradient(180deg, rgba(46,19,48,.45) 0%, rgba(46,19,48,.85) 75%); }
@@ -444,7 +477,8 @@
 <div id="google_translate_element" style="display:none;"></div>
 
 
-<header>
+<div class="header-spacer">
+<header class="header-overlay">
   <div class="wrap navrow">
     <a href="index.html" class="logo"><span class="dot"></span>SD Clinic</a>
     <nav class="mainnav">
@@ -498,6 +532,7 @@
     <a href="consultation.html" class="btn btn-coral" onclick="closeMobileNav()">Get started</a>
   </div>
 </header>
+</div>
 
 <script>
   function toggleMobileNav(btn){
@@ -712,6 +747,17 @@
         heroGoToSlide((heroSlideIndex + 1) % heroSlides.length);
       }, 5000);
     }
+  })();
+
+  (function(){
+    const headerEl = document.querySelector('.header-overlay');
+    if(!headerEl) return;
+    function syncHeaderScrollState(){
+      if(window.scrollY > 60){ headerEl.classList.add('is-scrolled'); }
+      else { headerEl.classList.remove('is-scrolled'); }
+    }
+    window.addEventListener('scroll', syncHeaderScrollState);
+    syncHeaderScrollState();
   })();
 </script>
 
