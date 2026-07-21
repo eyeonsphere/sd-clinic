@@ -364,6 +364,46 @@
   .goog-te-banner-frame{ display:none !important; }
   body{ top:0 !important; }
 
+
+  /* ---------- Homepage hero slider ---------- */
+  .hero-slider{ position:relative; height:640px; overflow:hidden; color:#fff; }
+  .slider-slide{
+    position:absolute; inset:0; background-size:cover; background-position:center;
+    opacity:0; transition:opacity 1.2s ease;
+  }
+  .slider-slide.active{ opacity:1; }
+  .hero-slider-overlay{
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(90deg, rgba(46,19,48,.88) 0%, rgba(46,19,48,.6) 42%, rgba(46,19,48,.22) 75%, rgba(46,19,48,.05) 100%);
+  }
+  .hero-slider-content{
+    position:relative; z-index:2; height:100%;
+    display:flex; flex-direction:column; justify-content:center; max-width:560px;
+  }
+  .hero-slider .eyebrow{ color:#F1D9EA; }
+  .hero-slider h1{ color:#fff; font-size:clamp(2.2rem,4.4vw,3.6rem); margin:14px 0 16px; }
+  .hero-slider .lede{ color:#EDE0E8; font-size:1.08rem; max-width:46ch; margin-bottom:30px; }
+  .hero-slider .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+  .slider-dots{
+    position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+    display:flex; gap:9px; z-index:3;
+  }
+  .slider-dot{
+    width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.4);
+    border:none; cursor:pointer; padding:0; transition:background .2s, transform .2s;
+  }
+  .slider-dot.active{ background:#fff; transform:scale(1.3); }
+  .hero-slider .timeline{ position:absolute; bottom:0; left:0; right:0; z-index:3; margin-top:0; border-top:none; background:rgba(46,19,48,.55); backdrop-filter:blur(2px); }
+
+  @media (max-width: 980px){
+    .hero-slider{ height:600px; }
+    .hero-slider-overlay{ background:linear-gradient(180deg, rgba(46,19,48,.45) 0%, rgba(46,19,48,.85) 75%); }
+    .hero-slider-content{ max-width:100%; }
+  }
+  @media (max-width: 560px){
+    .hero-slider{ height:560px; }
+  }
+
   @media (max-width: 980px){
     nav.mainnav{display:none;}
     .navactions{display:none;}
@@ -624,25 +664,23 @@
   }
 </script>
 
-<section id="top" class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Compounded GLP-1s &amp; Longevity Products</p>
-      <h1>Perform Better.<br>Recover Faster.<br>Age Slower.</h1>
-      <p class="lede">For those thinking about the next 20 years — not just the next 20 pounds.</p>
-      <div class="hero-ctas">
-        <a href="consultation.html" class="btn btn-coral">Get Started</a>
-      </div>
+<section id="top" class="hero-slider">
+  <div class="slider-slide active" style="background-image:url('images/hero-1.jpg');"></div>
+  <div class="slider-slide" style="background-image:url('images/hero-2.jpg');"></div>
+  <div class="slider-slide" style="background-image:url('images/hero-3.jpg');"></div>
+  <div class="hero-slider-overlay"></div>
+  <div class="wrap hero-slider-content">
+    <p class="eyebrow">Compounded GLP-1s &amp; Longevity Products</p>
+    <h1>Perform Better.<br>Recover Faster.<br>Age Slower.</h1>
+    <p class="lede">For those thinking about the next 20 years — not just the next 20 pounds.</p>
+    <div class="hero-ctas">
+      <a href="consultation.html" class="btn btn-coral">Get Started</a>
     </div>
-    <div class="hero-art">
-      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="86" stroke="#4A2545" stroke-width="1.4" stroke-dasharray="4 6" opacity=".5"/>
-        <circle cx="100" cy="100" r="60" stroke="#4A2545" stroke-width="1" opacity=".3"/>
-        <path d="M100 40 A60 60 0 0 1 154 118" stroke="#4A2545" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="154" cy="118" r="6" fill="#4A2545"/>
-        <path d="M60 130 L85 100 L105 118 L145 72" stroke="#4A2545" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
-      </svg>
-    </div>
+  </div>
+  <div class="slider-dots">
+    <button class="slider-dot active" onclick="heroGoToSlide(0)" aria-label="Slide 1"></button>
+    <button class="slider-dot" onclick="heroGoToSlide(1)" aria-label="Slide 2"></button>
+    <button class="slider-dot" onclick="heroGoToSlide(2)" aria-label="Slide 3"></button>
   </div>
 
   <div class="timeline">
@@ -656,6 +694,26 @@
     </div>
   </div>
 </section>
+
+<script>
+  (function(){
+    let heroSlideIndex = 0;
+    const heroSlides = document.querySelectorAll('.slider-slide');
+    const heroDots = document.querySelectorAll('.slider-dot');
+    window.heroGoToSlide = function(i){
+      heroSlides.forEach(s=>s.classList.remove('active'));
+      heroDots.forEach(d=>d.classList.remove('active'));
+      heroSlides[i].classList.add('active');
+      heroDots[i].classList.add('active');
+      heroSlideIndex = i;
+    };
+    if(heroSlides.length > 1){
+      setInterval(function(){
+        heroGoToSlide((heroSlideIndex + 1) % heroSlides.length);
+      }, 5000);
+    }
+  })();
+</script>
 
 <section id="pricing" style="background:#fff;">
   <div class="wrap">
