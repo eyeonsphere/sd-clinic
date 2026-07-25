@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semaglutide Safety Information — SD Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum-900:#2E1330;
+    --plum-700:#4A2545;
+    --plum-500:#6B3F63;
+    --plum-100:#F1E4EF;
+    --plum-050:#F8F3F2;
+    --cream:#F8F3F2;
+    --sand-200:#EAE1DE;
+    --ink-900:#1F1B1D;
+    --ink-600:#6B6266;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins', sans-serif;
+    color:var(--ink-900);
+    background:var(--cream);
+    line-height:1.5;
+  }
+  h1,h2,h3,h4{
+    font-family:'Poppins', sans-serif;
+    font-weight:600;
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    color:var(--plum-700);
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  .eyebrow{
+    font-size:.74rem;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--plum-500);
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 28px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:.94rem;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-coral{background:var(--plum-700); color:#fff; box-shadow:0 8px 20px -8px rgba(74,37,69,.45);}
+  .btn-coral:hover{background:var(--plum-900);}
+  .btn-outline{border-color:var(--plum-700); color:var(--plum-700);}
+  .btn-outline:hover{background:var(--plum-700); color:#fff;}
+  .btn-plum{background:var(--plum-700); color:#fff;}
+
+  /* ---------- Trust bar ---------- */
+  .trustbar{
+    background:var(--plum-700);
+    color:#F6ECF4;
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.02em;
+  }
+  .trustbar .wrap{
+    display:flex; justify-content:center; gap:40px;
+    padding:9px 28px; flex-wrap:wrap;
+  }
+  .trustbar span{display:flex; align-items:center; gap:7px; white-space:nowrap;}
+  .trustbar span::before{content:"✓"; color:#fff; font-weight:800;}
+
+  /* ---------- Header (light, matches real site) ---------- */
+  header{
+    background:var(--cream);
+    position:sticky; top:0; z-index:50;
+    border-bottom:1px solid var(--sand-200);
+  }
+  .navrow{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+  }
+  .logo{
+    font-family:'Poppins', serif;
+    font-size:1.4rem;
+    color:var(--plum-700);
+    font-weight:700;
+    display:flex; align-items:center; gap:10px;
+  }
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--plum-700);display:inline-block;}
+  nav.mainnav{display:flex; gap:32px;}
+  nav.mainnav a{
+    color:var(--ink-900); font-weight:600; font-size:.92rem;
+    padding:6px 2px; border-bottom:2px solid transparent;
+    transition:color .15s, border-color .15s;
+  }
+  nav.mainnav a:hover, nav.mainnav a.active{color:var(--plum-700); border-color:var(--plum-700);}
+  .navactions{display:flex; align-items:center; gap:14px;}
+  .navactions a.icon-link{color:var(--ink-900); font-weight:600; font-size:.9rem;}
+  .navactions a.icon-link:hover{color:var(--plum-700);}
+  .navtoggle{display:none; background:none; border:none; color:var(--plum-700); font-size:1.5rem; cursor:pointer; line-height:1;}
+  .mobilenav{
+    display:none; flex-direction:column; gap:2px;
+    max-height:0; overflow:hidden;
+    background:var(--cream);
+    border-top:1px solid var(--sand-200);
+    transition:max-height .25s ease;
+  }
+  .mobilenav.open{max-height:420px;}
+  .mobilenav a{
+    color:var(--ink-900); font-weight:600; font-size:.95rem;
+    padding:14px 28px; border-top:1px solid var(--sand-200);
+  }
+  .mobilenav a.btn{margin:14px 28px 20px; text-align:center; justify-content:center;}
+
+  /* ---------- Hero (light, on-brand) ---------- */
+  .hero{
+    position:relative;
+    background:var(--cream);
+    padding:64px 0 0;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;
+  }
+  .hero .eyebrow{color:var(--plum-500); margin-bottom:14px; display:block;}
+  .hero h1{
+    font-size:clamp(2.2rem, 4vw, 3.2rem);
+    margin:0 0 18px;
+    color:var(--plum-700);
+  }
+  .hero p.lede{font-size:1.05rem; color:var(--ink-600); max-width:46ch; margin-bottom:30px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .hero-art{
+    position:relative; aspect-ratio:4/5; border-radius:24px;
+    background:var(--plum-100);
+    border:1px solid var(--sand-200);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-art svg{width:68%; height:68%;}
+
+  /* ---------- Category hero (product pages) ---------- */
+  .cat-hero{
+    position:relative;
+    background:var(--plum-100);
+    padding:56px 0;
+  }
+  .cat-hero .eyebrow{color:var(--plum-500);}
+  .cat-hero h1{font-size:clamp(2rem,4vw,2.8rem); margin:12px 0 16px; color:var(--plum-700);}
+  .cat-hero p{color:var(--ink-600); max-width:56ch; font-size:1.02rem; margin-bottom:26px;}
+  .breadcrumb{font-size:.82rem; color:var(--plum-500); margin-bottom:16px;}
+  .breadcrumb a:hover{color:var(--plum-700);}
+
+  /* ---------- Timeline signature strip ---------- */
+  .timeline{
+    background:var(--plum-050);
+    border-top:1px solid var(--sand-200);
+    border-bottom:1px solid var(--sand-200);
+    color:var(--ink-600);
+    padding:22px 0;
+    margin-top:56px;
+  }
+  .timeline .wrap{display:flex; align-items:center; gap:22px;}
+  .timeline .tl-label{font-size:.74rem; font-weight:700; letter-spacing:.08em; color:var(--plum-500); white-space:nowrap;}
+  .tl-track{flex:1; position:relative; height:4px; background:var(--sand-200); border-radius:4px;}
+  .tl-fill{position:absolute; left:0; top:0; height:100%; width:14%; background:var(--plum-700); border-radius:4px;}
+  .tl-dot{position:absolute; top:50%; width:14px; height:14px; border-radius:50%; background:var(--plum-700); transform:translate(-50%,-50%); box-shadow:0 0 0 5px var(--plum-100);}
+
+  /* ---------- Section shells ---------- */
+  section{padding:80px 0;}
+  .section-head{max-width:640px; margin:0 auto 46px; text-align:center;}
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem); margin-top:8px; color:var(--plum-700);}
+  .section-head p{color:var(--ink-600); margin-top:12px; font-size:1.02rem;}
+
+  /* ---------- Program / teaser cards ---------- */
+  .card-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px;
+  }
+  .category-block{padding:52px 0;}
+  .category-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom:26px; flex-wrap:wrap; gap:8px;
+  }
+  .category-head h2{font-size:clamp(1.3rem,2.4vw,1.7rem); color:var(--plum-700);}
+  .category-head p{color:var(--ink-600); font-size:.95rem; max-width:46ch;}
+  .card{
+    background:#fff; border:1px solid var(--sand-200); border-radius:18px;
+    padding:26px 22px; display:flex; flex-direction:column; gap:14px;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{transform:translateY(-6px); box-shadow:0 20px 34px -20px rgba(74,37,69,.22);}
+  .card-icon{
+    width:52px; height:52px; border-radius:14px;
+    background:var(--plum-100); display:flex; align-items:center; justify-content:center;
+  }
+  .card-icon svg{width:26px; height:26px; stroke:var(--plum-700);}
+  .card h3{font-size:1.14rem; color:var(--plum-700);}
+  .card p.blurb{color:var(--ink-600); font-size:.9rem;}
+  .card .price{font-size:1.25rem; color:var(--plum-700); font-weight:700;}
+  .card .price span{font-size:.75rem; color:var(--ink-600); font-weight:500;}
+  .card .first-month{font-size:.82rem; color:var(--ink-600);}
+  .card a.card-cta{
+    margin-top:auto; font-weight:700; font-size:.88rem; color:var(--plum-700);
+    display:flex; align-items:center; gap:6px;
+  }
+  .card a.card-cta:hover{color:var(--plum-900);}
+
+  /* ---------- How it works (numbered) ---------- */
+  .steps{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:26px;
+  }
+  .step{position:relative; padding-top:6px;}
+  .step .num{
+    font-size:2.4rem; font-weight:700; color:var(--plum-100);
+    -webkit-text-stroke:1.5px var(--plum-700);
+    line-height:1;
+  }
+  .step h4{margin:14px 0 8px; font-size:1.06rem; color:var(--plum-700);}
+  .step p{color:var(--ink-600); font-size:.92rem;}
+
+  /* ---------- Testimonials ---------- */
+  .testi-wrap{background:var(--plum-100); border:1px solid var(--sand-200); border-radius:26px; padding:52px 40px;}
+  .testi-wrap .section-head h2{color:var(--plum-700);}
+  .testi-wrap .section-head p{color:var(--ink-600);}
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .testi{
+    background:#fff; border:1px solid var(--sand-200);
+    border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;
+  }
+  .stars{color:var(--plum-700); letter-spacing:2px; font-size:.9rem;}
+  .testi h4{font-size:1rem; color:var(--plum-700);}
+  .testi p{font-size:.88rem; color:var(--ink-600);}
+  .testi .who{display:flex; align-items:center; gap:10px; margin-top:auto; font-size:.82rem; color:var(--ink-600);}
+  .avatar{
+    width:32px;height:32px;border-radius:50%; background:var(--plum-700); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700;
+  }
+
+  /* ---------- FAQ accordion ---------- */
+  .faq{max-width:820px; margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--sand-200);}
+  .faq-item summary{
+    list-style:none; cursor:pointer; padding:20px 4px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-weight:600; font-size:1.02rem; color:var(--plum-700);
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+"; font-size:1.4rem; color:var(--plum-700); font-weight:400;}
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item .faq-body{padding:0 4px 22px; color:var(--ink-600); font-size:.94rem; max-width:70ch;}
+
+  /* ---------- CTA banner ---------- */
+  .cta-banner{
+    background:var(--plum-700);
+    color:#fff; border-radius:26px; padding:52px 40px; text-align:center;
+  }
+  .cta-banner h2{font-size:clamp(1.6rem,3vw,2.1rem); margin-bottom:14px; color:#fff;}
+  .cta-banner p{color:#EBD9E5; margin-bottom:26px;}
+  .cta-banner .btn-outline{border-color:rgba(255,255,255,.7); color:#fff;}
+  .cta-banner .btn-outline:hover{background:#fff; color:var(--plum-700);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--plum-900); color:#D9C4D1; padding:60px 0 24px; font-size:.9rem;}
+  .foot-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:34px;
+    padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .foot-brand .logo{color:#fff; margin-bottom:14px;}
+  .foot-brand .logo .dot{background:#fff;}
+  .foot-brand p{max-width:32ch; color:#C9A9BE; font-size:.86rem;}
+  .foot-social{display:flex; gap:12px; margin-top:16px;}
+  .foot-social a{
+    width:34px;height:34px;border-radius:50%; border:1px solid rgba(255,255,255,.22);
+    display:flex; align-items:center; justify-content:center; font-size:.8rem;
+  }
+  footer h5{font-size:.74rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#F2E7EE; margin-bottom:16px;}
+  footer ul li{margin-bottom:10px;}
+  footer ul li a:hover{color:#fff;}
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding-top:20px;
+    flex-wrap:wrap; gap:12px; font-size:.8rem; color:#A98CA0;
+  }
+  .foot-bottom .legal-links{display:flex; gap:18px; flex-wrap:wrap;}
+
+
+  /* ---------- Treatments mega menu ---------- */
+  .nav-dropdown{ position:relative; }
+  .nav-trigger{
+    background:none; border:none; font-family:'Poppins',sans-serif; color:var(--ink-900);
+    cursor:pointer; display:flex; align-items:center; gap:5px; padding:6px 2px;
+    border-bottom:2px solid transparent; font-weight:600; font-size:.92rem;
+  }
+  .nav-trigger:hover, .nav-trigger.active{ color:var(--plum-700); border-color:var(--plum-700); }
+  .nav-trigger .chev{ width:10px; height:10px; transition:transform .15s; }
+  .nav-dropdown:hover .chev, .nav-dropdown.open .chev{ transform:rotate(180deg); }
+  .mega-panel{
+    position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px);
+    background:#fff; border:1px solid var(--sand-200); border-radius:16px;
+    box-shadow:0 20px 40px -16px rgba(74,37,69,.28);
+    padding:12px; display:grid; grid-template-columns:1fr 1fr; gap:4px; width:460px;
+    opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .15s, visibility .15s, transform .15s;
+    z-index:60;
+  }
+  .nav-dropdown:hover .mega-panel, .nav-dropdown.open .mega-panel{
+    opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);
+  }
+  .mega-item{ display:flex; gap:12px; padding:11px; border-radius:10px; align-items:flex-start; }
+  .mega-item:hover{ background:var(--plum-050); }
+  .mega-icon{ width:34px; height:34px; border-radius:10px; background:var(--plum-100); display:flex; align-items:center; justify-content:center; flex:none; }
+  .mega-icon svg{ width:17px; height:17px; stroke:var(--plum-700); }
+  .mega-title{ font-weight:600; font-size:.9rem; color:var(--plum-700); margin-bottom:2px; }
+  .mega-blurb{ font-size:.76rem; color:var(--ink-600); line-height:1.4; }
+
+  .mobile-accordion-trigger{
+    width:100%; text-align:left; background:none; border:none; font-family:'Poppins',sans-serif;
+    color:var(--ink-900); font-weight:600; font-size:.95rem; padding:14px 28px;
+    border-top:1px solid var(--sand-200); display:flex; justify-content:space-between;
+    align-items:center; cursor:pointer;
+  }
+  .mobile-accordion-trigger .chev{ width:11px; height:11px; transition:transform .2s; }
+  .mobile-accordion-trigger.open .chev{ transform:rotate(180deg); }
+  .mobile-accordion-panel{ max-height:0; overflow:hidden; transition:max-height .25s ease; background:var(--plum-050); }
+  .mobile-accordion-panel.open{ max-height:320px; }
+  .mobile-accordion-panel a{ padding:12px 40px !important; border-top:none !important; font-weight:500 !important; font-size:.9rem; }
+
+
+  /* ---------- Cart icon ---------- */
+  .cart-icon-link{ position:relative; display:flex; align-items:center; color:var(--ink-900); }
+  .cart-icon-link svg{ width:22px; height:22px; stroke:var(--ink-900); }
+  .cart-icon-link:hover svg{ stroke:var(--plum-700); }
+  .cart-badge{
+    position:absolute; top:-8px; right:-10px; background:var(--plum-700); color:#fff;
+    font-size:.68rem; font-weight:700; min-width:17px; height:17px; border-radius:99px;
+    display:none; align-items:center; justify-content:center; padding:0 4px;
+  }
+  .mobile-cart-badge{
+    background:var(--plum-700); color:#fff; font-size:.7rem; font-weight:700;
+    min-width:18px; height:18px; border-radius:99px; display:none; align-items:center;
+    justify-content:center; padding:0 5px; margin-left:6px;
+  }
+
+
+  /* ---------- Top utility bar ---------- */
+  .utility-bar{ background:var(--plum-900); color:#fff; font-size:.78rem; padding:7px 0; }
+  .utility-bar-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+  .utility-links{ display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+  .utility-links a{ color:#E8D9E4; font-weight:500; }
+  .utility-links a:hover{ color:#fff; }
+  .utility-buttons{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .utility-btn{
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.28);
+    color:#fff; font-weight:600; padding:5px 14px; border-radius:100px;
+    font-size:.76rem; white-space:nowrap; transition:background .15s, border-color .15s;
+  }
+  .utility-btn:hover{ background:rgba(255,255,255,.22); border-color:rgba(255,255,255,.45); }
+  #google_translate_element{ display:none; }
+  .goog-te-banner-frame{ display:none !important; }
+  body{ top:0 !important; }
+
+  @media (max-width: 980px){
+    nav.mainnav{display:none;}
+    .navactions{display:none;}
+    .navtoggle{display:block;}
+    .mobilenav{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{max-width:340px; margin:0 auto;}
+    .card-grid{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:repeat(2,1fr);}
+    .testi-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .trustbar .wrap{gap:18px;}
+  }
+  @media (max-width: 560px){
+    .card-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="wrap utility-bar-inner">
+    <div class="utility-links">
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="utility-buttons">
+      <a href="tel:6199144222" class="utility-btn">📞 (619) 914-4222</a>
+      <a href="#" onclick="sdSwitchToSpanish(event)" class="utility-btn">🇲🇽 Haz clic para Español</a>
+    </div>
+  </div>
+</div>
+<div id="google_translate_element" style="display:none;"></div>
+
+
+<header>
+  <div class="wrap navrow">
+    <a href="index.html" class="logo"><span class="dot"></span>SD Clinic</a>
+    <nav class="mainnav">
+      <div class="nav-dropdown">
+        <button class="nav-trigger" onclick="toggleMegaMenu(this)">Treatments <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+        <div class="mega-panel">
+      <a href="longevity.html" class="mega-item">
+        <div class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M5 9l7-5 7 5M5 15l7 5 7-5"/></svg></div>
+        <div><div class="mega-title">Longevity</div><div class="mega-blurb">Cellular and hormonal support built for the long game.</div></div>
+      </a>
+      <a href="weight-loss.html" class="mega-item">
+        <div class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg></div>
+        <div><div class="mega-title">Weight Loss</div><div class="mega-blurb">GLP-1 therapies for steady, sustainable loss.</div></div>
+      </a>
+      <a href="energy.html" class="mega-item">
+        <div class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg></div>
+        <div><div class="mega-title">Energy &amp; Vitality</div><div class="mega-blurb">Steadier energy, without the crash.</div></div>
+      </a>
+      <a href="recovery.html" class="mega-item">
+        <div class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 12h4l2-7 4 14 2-7h4"/></svg></div>
+        <div><div class="mega-title">Recovery &amp; Performance</div><div class="mega-blurb">Muscle repair, sleep, and faster bounce-back.</div></div>
+      </a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="consultation.html">Online Consultation</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+    <div class="navactions">
+      <a href="login.html" class="icon-link nav-login-link">Log in</a>
+      <a href="cart.html" class="cart-icon-link" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-badge">0</span></a>
+      <a href="consultation.html" class="btn btn-coral">Get started</a>
+    </div>
+    <button class="navtoggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">☰</button>
+  </div>
+  <div class="mobilenav" id="mobilenav">
+    <button class="mobile-accordion-trigger" onclick="toggleMobileAccordion(this)">Treatments <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+    <div class="mobile-accordion-panel">
+      <a href="longevity.html" onclick="closeMobileNav()">Longevity</a>
+      <a href="weight-loss.html" onclick="closeMobileNav()">Weight Loss</a>
+      <a href="energy.html" onclick="closeMobileNav()">Energy &amp; Vitality</a>
+      <a href="recovery.html" onclick="closeMobileNav()">Recovery &amp; Performance</a>
+    </div>
+    <a href="about.html" onclick="closeMobileNav()">About</a>
+    <a href="contact.html" onclick="closeMobileNav()">Contact</a>
+    <a href="consultation.html" onclick="closeMobileNav()">Online Consultation</a>
+    <a href="blog.html" onclick="closeMobileNav()">Blog</a>
+    <a href="cart.html" onclick="closeMobileNav()">Cart <span class="mobile-cart-badge">0</span></a>
+    <a href="login.html" onclick="closeMobileNav()" class="nav-login-link">Log in</a>
+    <a href="consultation.html" class="btn btn-coral" onclick="closeMobileNav()">Get started</a>
+  </div>
+</header>
+<script>
+  function toggleMobileNav(btn){
+    const panel = document.getElementById('mobilenav');
+    const isOpen = panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    btn.textContent = isOpen ? '✕' : '☰';
+  }
+  function closeMobileNav(){
+    const panel = document.getElementById('mobilenav');
+    panel.classList.remove('open');
+    document.querySelector('.navtoggle').setAttribute('aria-expanded','false');
+    document.querySelector('.navtoggle').textContent = '☰';
+  }
+</script>
+<script>
+  const SD_PRODUCTS = {
+    "sema-injection": {name:"Semaglutide Injection", price:199, category:"Weight Loss", href:"weight-loss.html"},
+    "tirz-injection": {name:"Tirzepatide Injection", price:249, category:"Weight Loss", href:"weight-loss.html"},
+    "nad-injection": {name:"NAD+ Injection", price:169, category:"Longevity", href:"longevity.html"},
+    "sermorelin-injection": {name:"Sermorelin Injection", price:149, category:"Longevity", href:"longevity.html"},
+    "b12-injection": {name:"Vitamin B12 Injection", price:59, category:"Energy & Vitality", href:"energy.html"},
+    "recovery-peptide": {name:"Recovery Peptide Blend", price:219, category:"Recovery & Performance", href:"recovery.html"},
+    "wm-fast-melts": {name:"Weight Management Fast Melts", price:75, category:"Weight Management", href:"weight-management.html"},
+    "wm-monthly": {name:"Monthly Fast Melts Program", price:225, category:"Weight Management", href:"weight-management.html"},
+    "wm-bonus-pack": {name:"Fast Melts Bonus Pack (1 Month)", price:239, category:"Weight Management", href:"weight-management.html"},
+    "wm-90day": {name:"90-Day Fast Melts Program", price:675, category:"Weight Management", href:"weight-management.html"},
+    "wm-90day-sleep": {name:"90-Day Weight Loss + Sleep Program", price:927, category:"Weight Management", href:"weight-management.html"},
+    "wm-90day-nad-brain": {name:"90-Day Weight Loss + NAD+ + Brain Health", price:927, category:"Weight Management", href:"weight-management.html"},
+    "wm-1month-sleep": {name:"1-Month Weight Loss & Sleep Program", price:260, category:"Weight Management", href:"weight-management.html"},
+    "nad-gummies": {name:"NAD+ Anti-Aging Gummies", price:49, category:"NAD+ & Anti-Aging", href:"nad-anti-aging.html"},
+    "nad-1month": {name:"1-Month NAD+ Anti-Aging Program", price:147, category:"NAD+ & Anti-Aging", href:"nad-anti-aging.html"},
+    "nad-skincare": {name:"NAD+ Age Defense Moisturizer & Serum", price:110, category:"NAD+ & Anti-Aging", href:"nad-anti-aging.html"},
+    "rx-semaglutide": {name:"Semaglutide (Rx)", price:197, category:"Weight-Loss Medications", href:"weight-loss-medications.html"},
+    "rx-tirzepatide": {name:"Tirzepatide (Rx)", price:197, category:"Weight-Loss Medications", href:"weight-loss-medications.html"},
+    "rx-liraglutide": {name:"Liraglutide (Rx)", price:197, category:"Weight-Loss Medications", href:"weight-loss-medications.html"},
+    "rx-retatrutide": {name:"Retatrutide (Rx)", price:197, category:"Weight-Loss Medications", href:"weight-loss-medications.html"},
+    "rx-cagrilintide-sema": {name:"Cagrilintide + Semaglutide (Rx)", price:197, category:"Weight-Loss Medications", href:"weight-loss-medications.html"}
+  };
+
+  function sdCartGet(){
+    try{ return JSON.parse(localStorage.getItem('sd_cart') || '{}'); }catch(e){ return {}; }
+  }
+  function sdCartSave(cart){
+    localStorage.setItem('sd_cart', JSON.stringify(cart));
+    sdCartUpdateBadge();
+  }
+  function sdCartAdd(id, qty){
+    qty = qty || 1;
+    const cart = sdCartGet();
+    cart[id] = (cart[id] || 0) + qty;
+    sdCartSave(cart);
+  }
+  function sdCartSetQty(id, qty){
+    const cart = sdCartGet();
+    qty = parseInt(qty, 10);
+    if(!qty || qty < 1){ delete cart[id]; }
+    else { cart[id] = qty; }
+    sdCartSave(cart);
+  }
+  function sdCartRemove(id){
+    const cart = sdCartGet();
+    delete cart[id];
+    sdCartSave(cart);
+  }
+  function sdCartCount(){
+    const cart = sdCartGet();
+    return Object.values(cart).reduce((a,b)=>a+b, 0);
+  }
+  function sdCartSubtotal(){
+    const cart = sdCartGet();
+    let sum = 0;
+    Object.keys(cart).forEach(id=>{
+      if(SD_PRODUCTS[id]) sum += SD_PRODUCTS[id].price * cart[id];
+    });
+    return sum;
+  }
+  function sdCartUpdateBadge(){
+    const count = sdCartCount();
+    document.querySelectorAll('.cart-badge').forEach(el=>{
+      el.textContent = count;
+      el.style.display = count > 0 ? 'flex' : 'none';
+    });
+  }
+  function sdAddToCartClick(btn, id){
+    sdCartAdd(id, 1);
+    const original = btn.textContent;
+    btn.textContent = 'Added ✓';
+    btn.classList.add('added');
+    setTimeout(()=>{ btn.textContent = original; btn.classList.remove('added'); }, 1400);
+  }
+
+  /* ---------- DEMO-ONLY account system (browser storage, NOT secure, NOT for real use) ---------- */
+  function sdAuthUsers(){
+    try{ return JSON.parse(localStorage.getItem('sd_users_demo') || '[]'); }catch(e){ return []; }
+  }
+  function sdAuthSaveUsers(users){
+    localStorage.setItem('sd_users_demo', JSON.stringify(users));
+  }
+  function sdAuthSignup(name, email, password){
+    const users = sdAuthUsers();
+    if(users.find(u => u.email.toLowerCase() === email.toLowerCase())){
+      return { ok:false, error:'An account with that email already exists.' };
+    }
+    users.push({ name, email, password });
+    sdAuthSaveUsers(users);
+    localStorage.setItem('sd_session_demo', JSON.stringify({ name, email }));
+    return { ok:true };
+  }
+  function sdAuthLogin(email, password){
+    const users = sdAuthUsers();
+    const user = users.find(u => u.email.toLowerCase() === email.toLowerCase() && u.password === password);
+    if(!user){ return { ok:false, error:'Incorrect email or password.' }; }
+    localStorage.setItem('sd_session_demo', JSON.stringify({ name:user.name, email:user.email }));
+    return { ok:true };
+  }
+  function sdAuthLogout(){
+    localStorage.removeItem('sd_session_demo');
+    sdAuthUpdateNavLink();
+  }
+  function sdAuthCurrentUser(){
+    try{ return JSON.parse(localStorage.getItem('sd_session_demo') || 'null'); }catch(e){ return null; }
+  }
+  function sdAuthUpdateNavLink(){
+    const user = sdAuthCurrentUser();
+    document.querySelectorAll('.nav-login-link').forEach(el=>{
+      if(user){ el.textContent = user.name.split(' ')[0]; el.setAttribute('href','account.html'); }
+      else { el.textContent = 'Log in'; el.setAttribute('href','login.html'); }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', sdAuthUpdateNavLink);
+
+  /* ---------- Spanish translation (Google Website Translator) ---------- */
+  function googleTranslateElementInit(){
+    new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+  }
+  function sdSwitchToSpanish(e){
+    if(e) e.preventDefault();
+    const select = document.querySelector('#google_translate_element select');
+    if(select){
+      select.value = 'es';
+      select.dispatchEvent(new Event('change'));
+    } else {
+      setTimeout(function(){ sdSwitchToSpanish(); }, 600);
+    }
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+
+<script>
+  function toggleMegaMenu(btn){
+    btn.closest('.nav-dropdown').classList.toggle('open');
+  }
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(dd=>{
+      if(!dd.contains(e.target)) dd.classList.remove('open');
+    });
+  });
+  function toggleMobileAccordion(btn){
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
+  }
+</script>
+
+
+
+<section style="padding-top:56px;">
+  <div class="wrap" style="max-width:820px;">
+    <p class="breadcrumb"><a href="weight-loss-medications.html">Weight-Loss Medications</a> / Safety Information</p>
+    <p class="eyebrow">Rx safety information</p>
+    <h1 style="font-size:clamp(1.8rem,3.4vw,2.4rem); margin:12px 0 16px;">Important Safety Information for Compounded Semaglutide</h1>
+    <p style="color:var(--ink-600); line-height:1.75; font-size:.96rem; margin-bottom:14px;">Compounded medications are permitted under federal law but are not FDA-approved and do not go through the FDA's standard review for safety, effectiveness, or manufacturing. A licensed SD Clinic provider determines whether compounded semaglutide, and at what dose, is appropriate for you based on a full medical evaluation.</p>
+  </div>
+</section>
+
+<section style="background:#fff; padding-top:0;">
+  <div class="wrap" style="max-width:820px;">
+
+    <div style="border:1.5px solid #D8B88A; background:#F3EAD9; border-radius:12px; padding:20px 22px; margin:22px 0;">
+      <h3 style="font-size:1.02rem; color:var(--plum-700); margin-bottom:8px;">Boxed warning: risk of thyroid tumors</h3>
+      <p style="color:var(--ink-900); font-size:.92rem; line-height:1.7;">In animal studies, semaglutide (the same active ingredient found in Wegovy and Ozempic) caused thyroid tumors, including a form of thyroid cancer called medullary thyroid carcinoma (MTC). Whether this occurs in humans isn't yet known. Tell your provider right away if you notice a lump or swelling in your neck, hoarseness, difficulty swallowing, or shortness of breath, since these can be early signs of thyroid cancer. Semaglutide should not be used by anyone with a personal or family history of MTC, or with an endocrine condition called Multiple Endocrine Neoplasia syndrome type 2 (MEN 2).</p>
+    </div>
+
+    <h3 style="font-size:1.08rem; color:var(--plum-700); margin:28px 0 10px;">What is semaglutide prescribed for?</h3>
+    <p style="color:var(--ink-600); line-height:1.75; font-size:.96rem; margin-bottom:14px;">Semaglutide belongs to a class of medications called GLP-1 receptor agonists. It's prescribed for long-term weight management, alongside a reduced-calorie diet and increased physical activity, for adults with:</p>
+    <ul style="color:var(--ink-600); line-height:1.7; font-size:.96rem; padding-left:22px; margin-bottom:16px;"><li style="margin-bottom:8px;">A BMI of 30 or higher (classified as obesity), or</li><li style="margin-bottom:8px;">A BMI of 27 or higher (classified as overweight) combined with at least one weight-related health condition, such as high blood pressure, type 2 diabetes, or high cholesterol.</li></ul>
+    <h3 style="font-size:1.08rem; color:var(--plum-700); margin:28px 0 10px;">Limitations</h3>
+    <ul style="color:var(--ink-600); line-height:1.7; font-size:.96rem; padding-left:22px; margin-bottom:16px;"><li style="margin-bottom:8px;">Should not be combined with other semaglutide-containing products or any other GLP-1 receptor agonist.</li><li style="margin-bottom:8px;">Safety and effectiveness when combined with other weight-loss products haven't been established.</li><li style="margin-bottom:8px;">Has not been studied in patients with a history of pancreatitis.</li><li style="margin-bottom:8px;">Should not be used by patients with type 1 diabetes.</li></ul>
+
+    <h3 style="font-size:1.08rem; color:var(--plum-700); margin:28px 0 10px;">Who should not take semaglutide</h3>
+    <p style="color:var(--ink-600); line-height:1.75; font-size:.96rem; margin-bottom:14px;">Semaglutide should not be prescribed to anyone who:</p>
+    <ul style="color:var(--ink-600); line-height:1.7; font-size:.96rem; padding-left:22px; margin-bottom:16px;"><li style="margin-bottom:8px;">Has a personal or family history of medullary thyroid carcinoma (MTC), or has Multiple Endocrine Neoplasia syndrome type 2 (MEN 2).</li><li style="margin-bottom:8px;">Has a known allergy to semaglutide.</li></ul>
+
+    <h3 style="font-size:1.08rem; color:var(--plum-700); margin:28px 0 10px;">How it's taken</h3>
+    <p style="color:var(--ink-600); line-height:1.75; font-size:.96rem; margin-bottom:14px;">Semaglutide can be taken with or without food. It's self-administered as a once-weekly subcutaneous injection into the stomach, thigh, or upper arm, on the same day each week. Your provider will walk you through exact administration instructions as part of your treatment plan, and doses are typically increased gradually over the first several weeks. Don't change your dose or stop treatment without talking to your provider first.</p>
+
+    <h3 style="font-size:1.08rem; color:var(--plum-700); margin:28px 0 10px;">What to tell your provider before starting</h3>
+    <p style="color:var(--ink-600); line-height:1.75; font-size:.96rem; margin-bottom:14px;">Semaglutide can interact with other medications, so it's important to share a complete list of everything you're taking — prescription drugs, over-the-counter medications, vitamins, and supplements. Pay particular attention to:</p>
+    <ul style="color:var(--ink-600); line-height:1.7; font-size:.96rem; padding-left:22px; margin-bottom:16px;"><li style="margin-bottom:8px;">Medications for type 1 or type 2 diabetes, including insulin or sulfonylureas (e.g., glimepiride, glipizide) — semaglutide can affect blood sugar levels in combination with these.</li><li style="margin-bottom:8px;">Any oral medications taken at the same time, since semaglutide slows gastric emptying and may affect how other pills are absorbed.</li><li style="margin-bottom:8px;">Other GLP-1 medications (Wegovy, Ozempic, Saxenda, Victoza, Trulicity, Byetta, Bydureon).</li><li style="margin-bottom:8px;">Any other weight-loss products, including supplements.</li></ul>
+    <p style="color:var(--ink-600); line-height:1.75; font-size:.96rem; margin-bottom:14px;">Also let your provider know if you have, or have had, any of the following: type 1 or type 2 diabetes, thyroid cancer, pancreatitis, kidney disease, diabetic retinopathy, depression, suicidal thoughts or behavior, or a bowel obstruction (ileus).</p>
+    <p style="color:var(--ink-600); line-height:1.75; font-size:.96rem; margin-bottom:14px;"><strong>Pregnancy and breastfeeding:</strong> Semaglutide should not be used during pregnancy — animal studies suggest possible risk to a developing baby, and there's no benefit to weight loss during pregnancy. If you could become pregnant, plan to stop semaglutide at least 2 months before trying to conceive, since it stays in your system for a long time. Semaglutide has been found in the milk of nursing animals in studies — tell your provider if you're breastfeeding before starting treatment.</p>
+    <p style="color:var(--ink-600); line-height:1.75; font-size:.96rem; margin-bottom:14px;">Giving inaccurate or incomplete health information to obtain treatment can result in serious harm.</p>
+
+    <h3 style="font-size:1.08rem; color:var(--plum-700); margin:28px 0 10px;">Serious side effects to watch for</h3>
+    <p style="color:var(--ink-600); line-height:1.75; font-size:.96rem; margin-bottom:14px;">If you're having a medical emergency, call 911 or go to the nearest emergency room. Otherwise, watch for the following, especially early in treatment or after a dose increase:</p>
+    <ul style="color:var(--ink-600); line-height:1.7; font-size:.96rem; padding-left:22px; margin-bottom:16px;"><li style="margin-bottom:8px;"><strong>Thyroid tumors:</strong> covered in the boxed warning above.</li><li style="margin-bottom:8px;"><strong>Pancreatitis:</strong> severe abdominal pain that doesn't go away, sometimes spreading to the back, with or without vomiting.</li><li style="margin-bottom:8px;"><strong>Gallbladder problems:</strong> upper stomach pain, yellowing skin or eyes, fever, or unusually pale stools.</li><li style="margin-bottom:8px;"><strong>Low blood sugar:</strong> especially if you're also taking another diabetes medication — watch for dizziness, blurred vision, mood changes, sweating, or a racing heartbeat.</li><li style="margin-bottom:8px;"><strong>Kidney problems:</strong> dehydration from nausea, vomiting, or diarrhea can worsen existing kidney issues — stay well hydrated.</li><li style="margin-bottom:8px;"><strong>Serious allergic reaction:</strong> swelling of the face, lips, tongue, or throat, severe rash or itching, rapid heartbeat, trouble breathing or swallowing, or fainting.</li><li style="margin-bottom:8px;"><strong>Vision changes</strong> if you have type 2 diabetes.</li><li style="margin-bottom:8px;"><strong>Resting heart rate increase.</strong></li><li style="margin-bottom:8px;"><strong>Mood or behavior changes,</strong> including new or worsening depression or suicidal thoughts — contact your provider right away if this happens.</li><li style="margin-bottom:8px;">Never share needles or injection pens with anyone else.</li></ul>
+
+    <h3 style="font-size:1.08rem; color:var(--plum-700); margin:28px 0 10px;">Common, less serious side effects</h3>
+    <ul style="color:var(--ink-600); line-height:1.7; font-size:.96rem; padding-left:22px; margin-bottom:16px;"><li style="margin-bottom:8px;">Nausea</li><li style="margin-bottom:8px;">Diarrhea</li><li style="margin-bottom:8px;">Vomiting</li><li style="margin-bottom:8px;">Constipation</li><li style="margin-bottom:8px;">Stomach pain</li><li style="margin-bottom:8px;">Headache</li><li style="margin-bottom:8px;">Fatigue</li><li style="margin-bottom:8px;">Indigestion</li><li style="margin-bottom:8px;">Dizziness</li><li style="margin-bottom:8px;">Bloating</li><li style="margin-bottom:8px;">Burping</li><li style="margin-bottom:8px;">Low blood sugar (in patients with type 2 diabetes)</li><li style="margin-bottom:8px;">Gas</li><li style="margin-bottom:8px;">Gastroenteritis</li><li style="margin-bottom:8px;">Acid reflux</li></ul>
+
+    <p style="color:var(--ink-600); line-height:1.75; font-size:.96rem; margin-bottom:14px;">To report side effects, you can contact FDA MedWatch at 1-800-FDA-1088 or online at <a href="https://www.fda.gov/medwatch" target="_blank" style="text-decoration:underline;">fda.gov/medwatch</a>.</p>
+
+    <div style="background:var(--plum-050); border:1px solid var(--sand-200); border-radius:10px; padding:16px 18px; margin-top:26px; font-size:.85rem; color:var(--ink-600); line-height:1.6;">
+      This page is a general summary and is not a complete list of risks, warnings, or side effects. It is not a substitute for a full consultation with your provider, who can review your complete medical history and answer your specific questions before you start treatment.
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-banner">
+      <h2>Have questions about semaglutide?</h2>
+      <p>Our care team can walk you through whether it's a fit for your health profile.</p>
+      <a href="contact.html" class="btn btn-outline">Contact us</a>
+    </div>
+  </div>
+</section>
+
+
+<div class="trustbar">
+  <div class="wrap">
+    <span>100% refund if not approved</span>
+    <span>Under 1&nbsp;hr provider response</span>
+    <span>USP-compliant pharmacies</span>
+    <span>Free discreet shipping</span>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo"><span class="dot"></span>SD Clinic</a>
+        <p>Clinician-guided weight loss, energy, and longevity care — delivered discreetly, without the waiting room.</p>
+        <div style="margin-top:14px; font-size:.82rem; color:#C9A9BE; line-height:1.7;">
+          353 E Park Ave 102, El Cajon, CA 92020<br>
+          <a href="tel:6199144222" style="color:inherit;">(619) 914-4222</a><br>
+          <a href="mailto:info@sd-clinic.co" style="color:inherit;">info@sd-clinic.co</a>
+        </div>
+        <div class="foot-social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div>
+        <h5>Popular</h5>
+        <ul>
+          <li><a href="nad-anti-aging.html">NAD+</a></li>
+          <li><a href="recovery.html">Sermorelin</a></li>
+          <li><a href="weight-loss-medications.html">GLP-1s</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Treatments</h5>
+        <ul>
+          <li><a href="weight-management.html">Weight Management</a></li>
+          <li><a href="weight-loss-medications.html">Weight-Loss Medications</a></li>
+          <li><a href="nad-anti-aging.html">NAD+ &amp; Anti-Aging</a></li>
+          <li><a href="ed-treatment.html">ED Treatment</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Information</h5>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="consultation.html">Online Consultation</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#faq">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 SD Clinic. All rights reserved.</span>
+      <div class="legal-links">
+        <a href="privacy-policy.html">Privacy policy</a>
+        <a href="privacy-policy.html#terms">Terms of service</a>
+        <a href="#">Refund policy</a>
+        <a href="#">Shipping policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
