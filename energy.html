@@ -388,6 +388,8 @@
   .first-month-badge .fm-label{ font-weight:600; color:var(--ink-900); font-size:.88rem; display:flex; align-items:center; gap:6px; }
   .first-month-badge .fm-price{ color:var(--plum-700); font-weight:800; font-size:1rem; }
 
+  .force-3col{ grid-template-columns:repeat(3,1fr) !important; }
+
   @media (max-width: 980px){
     nav.mainnav{display:none;}
     .navactions{display:none;}
@@ -396,6 +398,7 @@
     .hero-grid{grid-template-columns:1fr;}
     .hero-art{max-width:340px; margin:0 auto;}
     .card-grid{grid-template-columns:repeat(2,1fr);}
+    .force-3col{grid-template-columns:repeat(2,1fr) !important;}
     .steps{grid-template-columns:repeat(2,1fr);}
     .testi-grid{grid-template-columns:1fr;}
     .foot-grid{grid-template-columns:1fr 1fr;}
@@ -405,6 +408,7 @@
   }
   @media (max-width: 560px){
     .card-grid{grid-template-columns:1fr;}
+    .force-3col{grid-template-columns:1fr !important;}
     .steps{grid-template-columns:1fr;}
     .foot-grid{grid-template-columns:1fr;}
   }
@@ -667,7 +671,7 @@
       <h2>One price, everything included</h2>
       <p>Consultation, medication, supplies, and shipping — no hidden fees, no surprise invoices.</p>
     </div>
-    <div class="card-grid">
+    <div class="card-grid force-3col">
       <div class="product-card">
         <a href="b12-mic.html"><img src="images/product-b12-mic.jpg" alt="Compounded B12 + MIC Injection — SD Clinic" class="product-card-img"></a>
         <div class="product-card-body">
