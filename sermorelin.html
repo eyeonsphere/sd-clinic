@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Longevity — SD Clinic</title>
+<title>Sermorelin Injection — SD Clinic</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -299,23 +299,23 @@
   .nav-trigger .chev{ width:10px; height:10px; transition:transform .15s; }
   .nav-dropdown:hover .chev, .nav-dropdown.open .chev{ transform:rotate(180deg); }
   .mega-panel{
-    position:absolute; top:100%; left:0; transform:translateY(8px);
+    position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px);
     background:#fff; border:1px solid var(--sand-200); border-radius:16px;
     box-shadow:0 20px 40px -16px rgba(74,37,69,.28);
-    padding:14px; display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:6px; width:700px;
+    padding:12px; display:grid; grid-template-columns:1fr 1fr; gap:4px; width:460px;
     opacity:0; visibility:hidden; pointer-events:none;
     transition:opacity .15s, visibility .15s, transform .15s;
     z-index:60;
   }
   .nav-dropdown:hover .mega-panel, .nav-dropdown.open .mega-panel{
-    opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0);
+    opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0);
   }
   .mega-item{ display:flex; gap:12px; padding:11px; border-radius:10px; align-items:flex-start; }
   .mega-item:hover{ background:var(--plum-050); }
   .mega-icon{ width:34px; height:34px; border-radius:10px; background:var(--plum-100); display:flex; align-items:center; justify-content:center; flex:none; }
   .mega-icon svg{ width:17px; height:17px; stroke:var(--plum-700); }
   .mega-title{ font-weight:600; font-size:.9rem; color:var(--plum-700); margin-bottom:2px; }
-  .mega-blurb{ font-size:.76rem; color:var(--ink-600); line-height:1.4; font-weight:400; }
+  .mega-blurb{ font-size:.76rem; color:var(--ink-600); line-height:1.4; }
 
   .mobile-accordion-trigger{
     width:100%; text-align:left; background:none; border:none; font-family:'Poppins',sans-serif;
@@ -364,30 +364,6 @@
   .goog-te-banner-frame{ display:none !important; }
   body{ top:0 !important; }
 
-  /* ---------- Product card (image-forward style) ---------- */
-  .product-card{
-    background:#fff; border:1px solid var(--sand-200); border-radius:18px; overflow:hidden;
-    display:flex; flex-direction:column; transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .product-card:hover{ transform:translateY(-6px); box-shadow:0 20px 34px -20px rgba(74,37,69,.28); }
-  .product-card-img{ width:100%; aspect-ratio:1; object-fit:cover; display:block; }
-  .product-card-img-placeholder{
-    width:100%; aspect-ratio:1; display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(135deg, var(--plum-500), var(--plum-700));
-  }
-  .product-card-img-placeholder svg{ width:56px; height:56px; stroke:#fff; opacity:.85; }
-  .product-card-body{ padding:20px 22px; display:flex; flex-direction:column; gap:10px; }
-  .product-card-body h3{ font-size:1.14rem; color:var(--plum-700); margin:0; }
-  .product-price-line{ font-size:.95rem; color:var(--ink-900); font-weight:700; }
-  .product-price-line .was{ text-decoration:line-through; color:var(--ink-600); font-weight:600; margin:0 3px; }
-  .product-price-line .per{ font-weight:500; color:var(--ink-600); font-size:.85rem; }
-  .first-month-badge{
-    display:flex; align-items:center; justify-content:space-between;
-    background:var(--plum-100); border-radius:10px; padding:10px 14px;
-  }
-  .first-month-badge .fm-label{ font-weight:600; color:var(--ink-900); font-size:.88rem; display:flex; align-items:center; gap:6px; }
-  .first-month-badge .fm-price{ color:var(--plum-700); font-weight:800; font-size:1rem; }
-
   @media (max-width: 980px){
     nav.mainnav{display:none;}
     .navactions{display:none;}
@@ -400,8 +376,6 @@
     .testi-grid{grid-template-columns:1fr;}
     .foot-grid{grid-template-columns:1fr 1fr;}
     .trustbar .wrap{gap:18px;}
-    .utility-links a:not(.utility-es){display:none;}
-    .utility-bar-inner{justify-content:space-between;}
   }
   @media (max-width: 560px){
     .card-grid{grid-template-columns:1fr;}
@@ -433,7 +407,7 @@
     <a href="index.html" class="logo"><span class="dot"></span>SD Clinic</a>
     <nav class="mainnav">
       <div class="nav-dropdown">
-        <button class="nav-trigger active" onclick="toggleMegaMenu(this)">Treatments <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+        <button class="nav-trigger" onclick="toggleMegaMenu(this)">Treatments <svg class="chev" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
         <div class="mega-panel">
       <a href="longevity.html" class="mega-item">
         <div class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M5 9l7-5 7 5M5 15l7 5 7-5"/></svg></div>
@@ -460,6 +434,7 @@
     <div class="navactions">
       <a href="login.html" class="icon-link nav-login-link">Log in</a>
       <a href="cart.html" class="cart-icon-link" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span class="cart-badge">0</span></a>
+      <a href="index.html#pricing" class="btn btn-coral">Get started</a>
     </div>
     <button class="navtoggle" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileNav(this)">☰</button>
   </div>
@@ -476,9 +451,9 @@
     <a href="blog.html" onclick="closeMobileNav()">Blog</a>
     <a href="cart.html" onclick="closeMobileNav()">Cart <span class="mobile-cart-badge">0</span></a>
     <a href="login.html" onclick="closeMobileNav()" class="nav-login-link">Log in</a>
+    <a href="index.html#pricing" class="btn btn-coral" onclick="closeMobileNav()">Get started</a>
   </div>
 </header>
-
 <script>
   function toggleMobileNav(btn){
     const panel = document.getElementById('mobilenav');
@@ -628,10 +603,6 @@
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
-
-
-
 <script>
   function toggleMegaMenu(btn){
     btn.closest('.nav-dropdown').classList.toggle('open');
@@ -647,204 +618,154 @@
   }
 </script>
 
-<section class="cat-hero">
-  <div class="wrap">
-    <p class="breadcrumb"><a href="index.html">Home</a> / Longevity</p>
-    <p class="eyebrow">Collection</p>
-    <h1>Longevity</h1>
-    <p>Cellular and hormonal support built for the long game, not a quick fix.</p>
-    <a href="#pricing" class="btn btn-coral">See pricing</a>
-  </div>
-</section>
 
-<section id="pricing" style="background:#fff;">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">Transparent, competitive pricing</p>
-      <h2>One price, everything included</h2>
-      <p>Consultation, medication, supplies, and shipping — no hidden fees, no surprise invoices.</p>
-    </div>
-    <div class="card-grid">
-      <div class="product-card">
-        <a href="nad.html"><img src="images/product-nad.jpg" alt="Compounded NAD+ Injection — SD Clinic" class="product-card-img"></a>
-        <div class="product-card-body">
-          <h3>NAD+ Injection</h3>
-          <div class="product-price-line">From <span class="was">$169</span><span class="per"> /mo</span></div>
-          <div class="first-month-badge">
-            <span class="fm-label">🏷️ First month</span>
-            <span class="fm-price">$119</span>
-          </div>
-          <a href="nad.html" class="card-cta">Learn more →</a>
-        </div>
+
+<section style="padding-top:40px; padding-bottom:0;">
+  <div class="wrap" style="max-width:1100px;">
+    <p class="breadcrumb"><a href="index.html">Home</a> / <a href="longevity.html">Longevity</a> / Sermorelin</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;">
+
+      <div>
+        <img src="images/product-sermorelin.jpg" alt="Compounded Sermorelin Injection — SD Clinic" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:18px; border:1px solid var(--sand-200);">
       </div>
-      <div class="product-card">
-        <a href="sermorelin.html"><img src="images/product-sermorelin.jpg" alt="Compounded Sermorelin Injection — SD Clinic" class="product-card-img"></a>
-        <div class="product-card-body">
-          <h3>Sermorelin Injection</h3>
-          <div class="product-price-line">From <span class="was">$149</span><span class="per"> /mo</span></div>
-          <div class="first-month-badge">
-            <span class="fm-label">🏷️ First month</span>
-            <span class="fm-price">$99</span>
-          </div>
-          <a href="sermorelin.html" class="card-cta">Learn more →</a>
+
+      <div>
+        <div style="display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap;">
+          <span style="background:var(--plum-100); color:var(--plum-700); font-size:.72rem; font-weight:700; padding:5px 12px; border-radius:100px; text-transform:uppercase; letter-spacing:.04em;">In stock</span>
+          <span style="background:#F3EAD9; color:#7A5622; font-size:.72rem; font-weight:700; padding:5px 12px; border-radius:100px; text-transform:uppercase; letter-spacing:.04em;">Limited-time promotion</span>
         </div>
-      </div>
-      <div class="product-card">
-        <a href="glutathione.html"><img src="images/product-glutathione.jpg" alt="Compounded Glutathione Injection — SD Clinic" class="product-card-img"></a>
-        <div class="product-card-body">
-          <h3>Glutathione Injection</h3>
-          <div class="product-price-line">From <span class="was">$129</span><span class="per"> /mo</span></div>
-          <div class="first-month-badge">
-            <span class="fm-label">🏷️ First month</span>
-            <span class="fm-price">$89</span>
-          </div>
-          <a href="glutathione.html" class="card-cta">Learn more →</a>
+        <h1 style="font-size:clamp(1.8rem,3.2vw,2.3rem); margin-bottom:10px;">Sermorelin Injection</h1>
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:16px;">
+          <span style="font-size:1.9rem; font-weight:800; color:var(--plum-700);">$99</span>
+          <span style="font-size:1.1rem; color:var(--ink-600); text-decoration:line-through;">$149</span>
+          <span style="font-size:.85rem; color:var(--ink-600);">first month</span>
         </div>
+        <p style="color:var(--ink-600); line-height:1.7; margin-bottom:22px;">Sermorelin stimulates your pituitary gland to produce more of your own growth hormone, rather than introducing a synthetic hormone directly — often used to support recovery, sleep quality, and lean muscle maintenance.</p>
+
+        <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:22px; font-size:.9rem; color:var(--ink-900);">
+          <div>✓ Shipped from a licensed US pharmacy</div>
+          <div>✓ No membership required — pay only for what you order</div>
+        </div>
+
+        <div style="background:var(--plum-050); border:1px solid var(--sand-200); border-radius:12px; padding:16px 18px; margin-bottom:24px;">
+          <div style="font-weight:700; color:var(--plum-700); font-size:.95rem;">$40 off your first order</div>
+          <div style="font-size:.82rem; color:var(--ink-600);">Limited-time promotion — applied automatically at checkout.</div>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px;">
+          <a href="index.html#pricing" class="btn btn-coral">Get started</a>
+        </div>
+
+        <h3 style="font-size:1rem; color:var(--plum-700); margin-bottom:10px;">What's included</h3>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:.88rem; color:var(--ink-600); margin-bottom:24px;">
+<div>• Prescription medication</div>
+<div>• Syringes</div>
+<div>• Alcohol prep pads</div>
+<div>• Expedited shipping</div>
+<div>• Provider consultation</div>
+<div>• Ongoing provider care</div>
+        </div>
+
+        
       </div>
+
     </div>
   </div>
 </section>
 
-<section id="how-it-works" style="background:#fff;">
+<section style="background:#fff;">
+  <div class="wrap" style="max-width:820px;">
+<h2 style="font-size:1.4rem; margin-bottom:12px;">What is Sermorelin?</h2>
+<p style="color:var(--ink-600); line-height:1.75; margin-bottom:28px;">Sermorelin is a peptide that signals your pituitary gland to release more of your body's own growth hormone. This indirect approach is part of why it has a different risk profile than direct hormone replacement.</p>
+<h2 style="font-size:1.4rem; margin-bottom:12px;">What to expect</h2>
+<p style="color:var(--ink-600); line-height:1.75; margin-bottom:28px;">Common goals include improved sleep quality, faster recovery between workouts, and support for lean muscle mass as growth hormone naturally declines with age. Realistic expectations matter — sermorelin supports your body's own processes rather than producing dramatic overnight changes.</p>
+<h2 style="font-size:1.4rem; margin-bottom:12px;">How we ensure quality and safety</h2>
+<p style="color:var(--ink-600); line-height:1.75; margin-bottom:28px;">Our compounded medications are sourced from licensed US pharmacies held to strict quality standards. Every batch goes through rigorous testing before it reaches you.</p>
+  </div>
+</section>
+
+<section id="how-it-works">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">The process</p>
       <h2>How it works</h2>
-      <p>From sign-up to your doorstep, in four clinician-reviewed steps.</p>
     </div>
     <div class="steps">
       <div class="step">
         <div class="num">01</div>
-        <h4>Choose your program</h4>
-        <p>Pick the path that fits your goals — GLP-1s, NAD+, Sermorelin, and more.</p>
+        <h4>Complete a short questionnaire</h4>
+        <p>Tell us about your health history and goals — takes just a few minutes.</p>
       </div>
       <div class="step">
         <div class="num">02</div>
-        <h4>Complete intake &amp; consultation</h4>
-        <p>After checkout, finish a secure intake and connect with a licensed provider to review your health profile.</p>
+        <h4>Provider review</h4>
+        <p>A licensed provider reviews your intake and determines if this treatment is right for you.</p>
       </div>
       <div class="step">
         <div class="num">03</div>
-        <h4>Get your personalized plan</h4>
-        <p>If approved, your provider determines the most appropriate treatment for your goals and health profile.</p>
-      </div>
-      <div class="step">
-        <div class="num">04</div>
-        <h4>Fast, discreet delivery</h4>
-        <p>Once approved, your treatment ships straight to your door — secure, tracked, and ready to use.</p>
+        <h4>Approved &amp; delivered</h4>
+        <p>Your treatment ships straight to your door in discreet packaging, typically within 3–5 business days.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="results">
+<section style="background:#fff;">
   <div class="wrap">
-    <div class="testi-wrap">
-      <div class="section-head">
-        <p class="eyebrow">Real people. Real change.</p>
-        <h2>Member stories</h2>
-        <p>From weight loss to restored energy — real people sharing their experience with clinician-guided care.</p>
+    <div class="section-head">
+      <p class="eyebrow">Related reading</p>
+      <h2>Learn more</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <h3 style="font-size:1rem;">NAD+ and Cellular Aging: The Science So Far</h3>
+        <a href="nad-cellular-aging.html" class="card-cta">Read article →</a>
       </div>
-      <div class="testi-grid">
-
-        <div class="testi">
-          <div class="stars">★★★★★</div>
-          <h4>Lost 22 lbs in 3 months</h4>
-          <p>After years of trying different approaches with no luck, an affordable path outside of insurance finally made the medication accessible — and the results followed.</p>
-          <div class="who"><span class="avatar">CW</span> Carly W. — GLP-1 Weight Loss</div>
-        </div>
-
-        <div class="testi">
-          <div class="stars">★★★★★</div>
-          <h4>Energy completely transformed</h4>
-          <p>Persistent exhaustion in his 40s made it hard to stay productive. NAD+ therapy gave him the sustained daily energy he'd been missing.</p>
-          <div class="who"><span class="avatar">PC</span> Paul C. — NAD+ Longevity</div>
-        </div>
-
-        <div class="testi">
-          <div class="stars">★★★★★</div>
-          <h4>Approved same day</h4>
-          <p>Years of consistent workouts weren't enough to avoid extra rest days as he got older. Sermorelin made a real difference in recovery and sustaining muscle growth.</p>
-          <div class="who"><span class="avatar">JS</span> Justin S. — Sermorelin Longevity</div>
-        </div>
-
-        <div class="testi">
-          <div class="stars">★★★★★</div>
-          <h4>Down 18 lbs in 6 weeks</h4>
-          <p>Years of losing and regaining the same 15 pounds finally made sense once a provider explained why it kept happening. Tirzepatide made the process feel sustainable for the first time.</p>
-          <div class="who"><span class="avatar">MR</span> Maria R. — GLP-1 Weight Loss</div>
-        </div>
-
-        <div class="testi">
-          <div class="stars">★★★★★</div>
-          <h4>Brain fog gone</h4>
-          <p>A busy executive had quietly started avoiding meetings she didn't feel sharp enough for. Six weeks into NAD+ therapy, she felt present and clear-headed again.</p>
-          <div class="who"><span class="avatar">AK</span> Ashley K. — NAD+ Longevity</div>
-        </div>
-
+      <div class="card">
+        <h3 style="font-size:1rem;">Peptide Therapy 101: What It Is and Who It's For</h3>
+        <a href="peptide-therapy-101.html" class="card-cta">Read article →</a>
       </div>
-      <div style="text-align:center; margin-top:36px;">
-        <a href="#pricing" class="btn btn-coral">Start my journey</a>
+      <div class="card">
+        <h3 style="font-size:1rem;">Sleep and Circadian Rhythm: The Overlooked Longevity Lever</h3>
+        <a href="sleep-circadian-rhythm.html" class="card-cta">Read article →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="faq" style="background:#fff;">
+<section>
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Questions</p>
       <h2>Frequently asked questions</h2>
     </div>
     <div class="faq">
-
-      <details class="faq-item" open>
-        <summary>Who is SD Clinic?</summary>
-        <div class="faq-body">SD Clinic connects members directly with board-certified physicians who prescribe clinician-grade GLP-1, NAD+, Sermorelin, and longevity therapies online — no waiting rooms, no insurance required. A provider reviews every profile before anything ships, and if a program isn't the right fit, you get a full refund.</div>
+<details class="faq-item" open>
+        <summary>How long before I notice results?</summary>
+        <div class="faq-body">Most members report gradual improvements in sleep and recovery over several weeks, rather than immediate effects.</div>
       </details>
-
-      <details class="faq-item">
-        <summary>How does it work?</summary>
-        <div class="faq-body">Choose a program and complete checkout, finish a short online intake covering your health history and goals, then a licensed provider reviews your information and builds a plan. Once approved, your treatment ships directly from a licensed pharmacy.</div>
+<details class="faq-item">
+        <summary>Is Sermorelin FDA-approved?</summary>
+        <div class="faq-body">Compounded sermorelin is not evaluated or approved by the FDA for safety, effectiveness, or quality.</div>
       </details>
-
-      <details class="faq-item">
-        <summary>What's included in the price?</summary>
-        <div class="faq-body">Every program bundles the secure intake, provider review, medication (if approved), and discreet delivery — pricing stays the same regardless of dosage, with monthly or one-time options available.</div>
-      </details>
-
-      <details class="faq-item">
+<details class="faq-item">
         <summary>What happens if I'm not approved?</summary>
-        <div class="faq-body">You're notified and refunded in full, and any subscription is canceled automatically — there are no ongoing charges and no risk in getting started.</div>
+        <div class="faq-body">If a provider determines sermorelin isn't right for you, you'll be notified and fully refunded, with any subscription automatically canceled.</div>
       </details>
-
-      <details class="faq-item">
-        <summary>How long does it take to receive my medication?</summary>
-        <div class="faq-body">Once your intake is approved, orders are processed and shipped within 3–5 business days, with tracking sent as soon as the package is on its way.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What states does SD Clinic currently serve?</summary>
-        <div class="faq-body">Coverage is expanding regularly — reach out through the contact section below and the team can confirm availability in your state.</div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Does SD Clinic require insurance?</summary>
-        <div class="faq-body">No — SD Clinic is designed to work entirely without insurance. Pricing is transparent and paid out of pocket, with no dosage-based markups.</div>
-      </details>
-
     </div>
   </div>
 </section>
 
-<section id="contact">
+<section style="background:#fff;">
   <div class="wrap">
     <div class="cta-banner">
-      <h2>Ready to invest in the next twenty years?</h2>
-      <p>Take the quiz, get matched with a licensed provider, and find out what's right for you.</p>
+      <h2>Ready to support your recovery?</h2>
+      <p>Complete your intake and find out if this treatment is right for you.</p>
+      <a href="index.html#pricing" class="btn btn-outline">Get started</a>
     </div>
   </div>
 </section>
+
 
 <div class="trustbar">
   <div class="wrap">
@@ -874,17 +795,18 @@
       <div>
         <h5>Popular</h5>
         <ul>
-          <li><a href="longevity.html">NAD+</a></li>
+          <li><a href="nad-anti-aging.html">NAD+</a></li>
           <li><a href="recovery.html">Sermorelin</a></li>
-          <li><a href="weight-loss.html">GLP-1s</a></li>
+          <li><a href="weight-loss-medications.html">GLP-1s</a></li>
         </ul>
       </div>
       <div>
-        <h5>Blog</h5>
+        <h5>Treatments</h5>
         <ul>
-          <li><a href="blog.html">View all</a></li>
-          <li><a href="#">What is NAD+?</a></li>
-          <li><a href="#">What is Sermorelin?</a></li>
+          <li><a href="weight-management.html">Weight Management</a></li>
+          <li><a href="weight-loss-medications.html">Weight-Loss Medications</a></li>
+          <li><a href="nad-anti-aging.html">NAD+ &amp; Anti-Aging</a></li>
+          <li><a href="ed-treatment.html">ED Treatment</a></li>
         </ul>
       </div>
       <div>
@@ -892,6 +814,9 @@
         <ul>
           <li><a href="about.html">About us</a></li>
           <li><a href="contact.html">Contact us</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="index.html#faq">FAQs</a></li>
         </ul>
       </div>
