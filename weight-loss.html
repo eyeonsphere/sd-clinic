@@ -364,6 +364,30 @@
   .goog-te-banner-frame{ display:none !important; }
   body{ top:0 !important; }
 
+  /* ---------- Product card (image-forward style) ---------- */
+  .product-card{
+    background:#fff; border:1px solid var(--sand-200); border-radius:18px; overflow:hidden;
+    display:flex; flex-direction:column; transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .product-card:hover{ transform:translateY(-6px); box-shadow:0 20px 34px -20px rgba(74,37,69,.28); }
+  .product-card-img{ width:100%; aspect-ratio:1; object-fit:cover; display:block; }
+  .product-card-img-placeholder{
+    width:100%; aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--plum-500), var(--plum-700));
+  }
+  .product-card-img-placeholder svg{ width:56px; height:56px; stroke:#fff; opacity:.85; }
+  .product-card-body{ padding:20px 22px; display:flex; flex-direction:column; gap:10px; }
+  .product-card-body h3{ font-size:1.14rem; color:var(--plum-700); margin:0; }
+  .product-price-line{ font-size:.95rem; color:var(--ink-900); font-weight:700; }
+  .product-price-line .was{ text-decoration:line-through; color:var(--ink-600); font-weight:600; margin:0 3px; }
+  .product-price-line .per{ font-weight:500; color:var(--ink-600); font-size:.85rem; }
+  .first-month-badge{
+    display:flex; align-items:center; justify-content:space-between;
+    background:var(--plum-100); border-radius:10px; padding:10px 14px;
+  }
+  .first-month-badge .fm-label{ font-weight:600; color:var(--ink-900); font-size:.88rem; display:flex; align-items:center; gap:6px; }
+  .first-month-badge .fm-price{ color:var(--plum-700); font-weight:800; font-size:1rem; }
+
   @media (max-width: 980px){
     nav.mainnav{display:none;}
     .navactions{display:none;}
@@ -642,19 +666,29 @@
       <p>Consultation, medication, supplies, and shipping — no hidden fees, no surprise invoices.</p>
     </div>
     <div class="card-grid">
-      <div class="card">
-        <img src="images/product-semaglutide.jpg" alt="Compounded Semaglutide Injection — SD Clinic" style="width:50%; aspect-ratio:1; object-fit:cover; border-radius:12px; margin:0 auto 2px; display:block;">
-        <h3>Semaglutide Injection</h3>
-        <div class="price">From $199<span> /mo</span></div>
-        <p class="first-month">First month $99</p>
-        <button class="card-cta" style="background:none; border:none; cursor:pointer; font-family:inherit; padding:0;" onclick="sdAddToCartClick(this,'sema-injection')">Add to cart →</button>
+      <div class="product-card">
+        <img src="images/product-semaglutide.jpg" alt="Compounded Semaglutide Injection — SD Clinic" class="product-card-img">
+        <div class="product-card-body">
+          <h3>Semaglutide Injection</h3>
+          <div class="product-price-line">From <span class="was">$199</span><span class="per"> /mo</span></div>
+          <div class="first-month-badge">
+            <span class="fm-label">🏷️ First month</span>
+            <span class="fm-price">$99</span>
+          </div>
+          <button class="card-cta" style="background:none; border:none; cursor:pointer; font-family:inherit; padding:0;" onclick="sdAddToCartClick(this,'sema-injection')">Add to cart →</button>
+        </div>
       </div>
-      <div class="card">
-        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg></div>
-        <h3>Tirzepatide Injection</h3>
-        <div class="price">From $249<span> /mo</span></div>
-        <p class="first-month">First month $149</p>
-        <button class="card-cta" style="background:none; border:none; cursor:pointer; font-family:inherit; padding:0;" onclick="sdAddToCartClick(this,'tirz-injection')">Add to cart →</button>
+      <div class="product-card">
+        <div class="product-card-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v6M9 5h6M7 9h10l-1 12H8L7 9Z"/></svg></div>
+        <div class="product-card-body">
+          <h3>Tirzepatide Injection</h3>
+          <div class="product-price-line">From <span class="was">$249</span><span class="per"> /mo</span></div>
+          <div class="first-month-badge">
+            <span class="fm-label">🏷️ First month</span>
+            <span class="fm-price">$149</span>
+          </div>
+          <button class="card-cta" style="background:none; border:none; cursor:pointer; font-family:inherit; padding:0;" onclick="sdAddToCartClick(this,'tirz-injection')">Add to cart →</button>
+        </div>
       </div>
     </div>
   </div>
