@@ -360,9 +360,6 @@
     font-size:.76rem; white-space:nowrap; transition:background .15s, border-color .15s;
   }
   .utility-btn:hover{ background:rgba(255,255,255,.22); border-color:rgba(255,255,255,.45); }
-  #google_translate_element{ position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden; }
-  .goog-te-banner-frame{ display:none !important; }
-  body{ top:0 !important; }
 
   @media (max-width: 980px){
     nav.mainnav{display:none;}
@@ -399,7 +396,6 @@
     </div>
   </div>
 </div>
-<div id="google_translate_element"></div>
 
 
 <header>
@@ -589,22 +585,14 @@
   }
   document.addEventListener('DOMContentLoaded', sdAuthUpdateNavLink);
 
-  /* ---------- Spanish translation (Google Website Translator) ---------- */
-  function googleTranslateElementInit(){
-    new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-  }
+  /* ---------- Spanish translation (opens Google's translate proxy) ---------- */
   function sdSwitchToSpanish(e){
     if(e) e.preventDefault();
-    const select = document.querySelector('#google_translate_element select');
-    if(select){
-      select.value = 'es';
-      select.dispatchEvent(new Event('change'));
-    } else {
-      setTimeout(function(){ sdSwitchToSpanish(); }, 600);
-    }
+    const url = 'https://translate.google.com/translate?sl=en&tl=es&u=' + encodeURIComponent(window.location.href);
+    window.open(url, '_blank');
   }
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+
 
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 
