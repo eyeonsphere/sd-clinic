@@ -394,7 +394,7 @@
     </div>
     <div class="utility-buttons">
       <a href="tel:6199144222" class="utility-btn">📞 (619) 914-4222</a>
-      <a href="#" onclick="sdSwitchToSpanish(event)" class="utility-btn">🇲🇽 Haz clic para Español</a>
+      <a href="#" onclick="sdSwitchToSpanish(event)" class="utility-btn" id="langToggleBtn">🇲🇽 Haz clic para Español</a>
     </div>
   </div>
 </div>
@@ -584,12 +584,28 @@
   document.addEventListener('DOMContentLoaded', sdAuthUpdateNavLink);
 
   /* ---------- Spanish translation (opens Google's translate proxy) ---------- */
+  const SD_REAL_DOMAIN = 'sdclinic.co';
   function sdSwitchToSpanish(e){
     if(e) e.preventDefault();
     const url = 'https://translate.google.com/translate?sl=en&tl=es&u=' + encodeURIComponent(window.location.href);
     window.open(url, '_blank');
   }
+  function sdBackToEnglish(e){
+    if(e) e.preventDefault();
+    window.location.href = 'https://' + SD_REAL_DOMAIN + window.location.pathname;
+  }
+  function sdInitLanguageToggle(){
+    const btn = document.getElementById('langToggleBtn');
+    if(!btn) return;
+    const isTranslated = window.location.hostname.indexOf('translate.goog') !== -1;
+    if(isTranslated){
+      btn.textContent = '🇺🇸 Back to English';
+      btn.onclick = sdBackToEnglish;
+    }
+  }
+  document.addEventListener('DOMContentLoaded', sdInitLanguageToggle);
 </script>
+
 
 
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
